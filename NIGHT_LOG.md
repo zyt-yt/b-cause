@@ -29,5 +29,24 @@ Autonomous build while user sleeps. Morning summary lives at the bottom.
 - Figures: converted paper_v2 teaser/pipeline/SOTA/train PDFs → assets/img/*.png.
 - (in progress) curation manifest, video compression, index.html + css + js.
 
-## A/B or blank placeholders to resolve in the morning
-- (list grows as I hit uncertain content)
+## Page build — COMPLETE
+Full single-page site built, verified on desktop (1280px) + mobile (390px) via headless Chromium, committed & pushed to `zyt-yt/b-cause` (private).
+- **8 sections**: Hero · The Problem · Interactive Causal Map · Method · Results Gallery · Comparisons · Quantitative · BibTeX.
+- **Interactive Causal Map** (signature): 42 blocks, blue=appearance / orange=motion paired bars bound to real `analysis_30x30_zdiff.json` scores; hover/tap a block → live scores + that layer's restored bicycle clip. Group legend filters. Palette passed the colorblind-safety validator (blue↔orange ΔE 27.8).
+- **Gallery**: 12 curated clips (5 artifact/no-subject clips dropped after a visual QC pass), category filter, viewport-triggered muted autoplay.
+- **Comparisons**: 4 subjects × {ours, CustomCrafter, VideoBooth, PIA}, ours outlined.
+- **Metrics**: real Table-1 numbers (ours best on CLIP-T/CLIP-I/DINO-I; CustomCrafter best T.Cons).
+- Media: 72 clips compressed to **~28 MB** (H.264/480p). Repo tracked size **~29 MB**. No file >2 MB.
+
+## TO RESOLVE IN THE MORNING (placeholders left blank / TBD on purpose)
+1. **Make it live** — Settings → make repo Public, then Pages → branch `main` / root. URL: `https://zyt-yt.github.io/b-cause/`. (See README.)
+2. **Header links** — Paper / Code / arXiv buttons are `href="#"` with a `TBD` tag. Fill real URLs in `index.html` (search `data-placeholder`).
+3. **BibTeX** — author + booktitle are `TBD` in `index.html` (`#bibtex` block).
+4. **Authors** — intentionally omitted (portfolio version). Add an author line in the hero if you want one (there's an HTML comment marking the spot).
+5. **Naive-finetune "breaks motion" clip** — the Problem section is currently text-only. If you want the before/after degradation clip you mentioned, drop it in and I'll wire a slot.
+6. **Vehicle category** — no vehicle subject had a `v3_enhanced/main` dir, so the gallery has none (bicycle appears in the causal map). Add one if you have it.
+7. **Baseline caveat** — baseline comparison clips differ in native res/frame-count (CustomCrafter 512², VideoBooth 256², PIA 49f); fine visually but worth a footnote if a reviewer-type asks.
+
+## How to iterate
+- Re-run `python scripts/compress_media.py` after editing `data/media_manifest.json` to swap clips.
+- Re-screenshot: `python scripts/shoot.py` (desktop) / `scripts/shoot_mobile.py` (writes to gitignored `scripts/shots/`).
