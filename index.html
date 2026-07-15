@@ -62,25 +62,20 @@
 <section id="problem">
   <div class="wrap">
     <p class="eyebrow">The problem</p>
-    <div class="problem-grid">
-      <div>
-        <h2 class="section-title">Customizing a DiT video model breaks its motion</h2>
-        <p>
-          U-Net video models keep <span class="hl-app">spatial</span> and <span class="hl-mot">temporal</span>
-          attention in separate modules, so identity can be tuned without touching motion. Modern
-          <span class="key">diffusion transformers</span> (e.g. CogVideoX) instead entangle both inside
-          <span class="key">shared spatio-temporal attention blocks</span>.
-        </p>
-        <p>
-          The consequence: applying a LoRA uniformly across all blocks to learn a subject <span class="key">also
-          overwrites the pretrained motion prior</span> &mdash; identity improves, but the video stiffens or drifts.
-          The open question is <em>which</em> blocks carry appearance vs. motion, and whether that split can be
-          exploited.
-        </p>
-      </div>
-      <figure class="figure" style="margin:0">
-        <img src="assets/img/pipeline-1.png" alt="B-CAUSE causal tracing and block utilization overview" loading="lazy">
-      </figure>
+    <div class="problem-statement">
+      <h2 class="section-title">Customizing a DiT video model breaks its motion</h2>
+      <p>
+        U-Net video models keep <span class="hl-app">spatial</span> and <span class="hl-mot">temporal</span>
+        attention in separate modules, so identity can be tuned without touching motion. Modern
+        <span class="key">diffusion transformers</span> (e.g. CogVideoX) instead entangle both inside
+        <span class="key">shared spatio-temporal attention blocks</span>.
+      </p>
+      <p>
+        The consequence: applying a LoRA uniformly across all blocks to learn a subject <span class="key">also
+        overwrites the pretrained motion prior</span> &mdash; identity improves, but the video stiffens or drifts.
+        The open question is <em>which</em> blocks carry appearance vs. motion, and whether that split can be
+        systematically characterized and exploited.
+      </p>
     </div>
   </div>
 </section>

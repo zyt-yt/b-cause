@@ -8,27 +8,6 @@
       "poster": "assets/posters/gal_cat1_0.jpg"
     },
     {
-      "subject": "cat1",
-      "category": "animal",
-      "prompt_label": "cat chasing a dragonfly",
-      "video": "assets/videos/gal_cat1_1.mp4",
-      "poster": "assets/posters/gal_cat1_1.jpg"
-    },
-    {
-      "subject": "cat1",
-      "category": "animal",
-      "prompt_label": "cat jumping over logs",
-      "video": "assets/videos/gal_cat1_2.mp4",
-      "poster": "assets/posters/gal_cat1_2.jpg"
-    },
-    {
-      "subject": "dog2",
-      "category": "animal",
-      "prompt_label": "dog chasing a frisbee",
-      "video": "assets/videos/gal_dog2_3.mp4",
-      "poster": "assets/posters/gal_dog2_3.jpg"
-    },
-    {
       "subject": "dog2",
       "category": "animal",
       "prompt_label": "dog running in a meadow",
@@ -43,27 +22,6 @@
       "poster": "assets/posters/gal_plushie_bunny_5.jpg"
     },
     {
-      "subject": "plushie_bunny",
-      "category": "plushie",
-      "prompt_label": "bunny surfing a wave",
-      "video": "assets/videos/gal_plushie_bunny_6.mp4",
-      "poster": "assets/posters/gal_plushie_bunny_6.jpg"
-    },
-    {
-      "subject": "plushie_bunny",
-      "category": "plushie",
-      "prompt_label": "bunny spinning on a trampoline",
-      "video": "assets/videos/gal_plushie_bunny_7.mp4",
-      "poster": "assets/posters/gal_plushie_bunny_7.jpg"
-    },
-    {
-      "subject": "actionfigure_1",
-      "category": "action-figure",
-      "prompt_label": "action figure racing on a track",
-      "video": "assets/videos/gal_actionfigure_1_8.mp4",
-      "poster": "assets/posters/gal_actionfigure_1_8.jpg"
-    },
-    {
       "subject": "actionfigure_1",
       "category": "action-figure",
       "prompt_label": "action figure spinning on a turntable",
@@ -73,23 +31,9 @@
     {
       "subject": "anime_1",
       "category": "anime",
-      "prompt_label": "anime character scene 1",
+      "prompt_label": "anime character in a flower field",
       "video": "assets/videos/gal_anime_1_10.mp4",
       "poster": "assets/posters/gal_anime_1_10.jpg"
-    },
-    {
-      "subject": "anime_1",
-      "category": "anime",
-      "prompt_label": "anime character scene 16",
-      "video": "assets/videos/gal_anime_1_11.mp4",
-      "poster": "assets/posters/gal_anime_1_11.jpg"
-    },
-    {
-      "subject": "anime_1",
-      "category": "anime",
-      "prompt_label": "anime character scene 31",
-      "video": "assets/videos/gal_anime_1_12.mp4",
-      "poster": "assets/posters/gal_anime_1_12.jpg"
     },
     {
       "subject": "duck_toy",
@@ -99,13 +43,6 @@
       "poster": "assets/posters/gal_duck_toy_13.jpg"
     },
     {
-      "subject": "duck_toy",
-      "category": "toy",
-      "prompt_label": "duck toy surfing a wave",
-      "video": "assets/videos/gal_duck_toy_14.mp4",
-      "poster": "assets/posters/gal_duck_toy_14.jpg"
-    },
-    {
       "subject": "robot_toy",
       "category": "toy",
       "prompt_label": "robot toy circling a chessboard",
@@ -113,11 +50,39 @@
       "poster": "assets/posters/gal_robot_toy_15.jpg"
     },
     {
-      "subject": "robot_toy",
-      "category": "toy",
-      "prompt_label": "robot toy scene 5",
-      "video": "assets/videos/gal_robot_toy_16.mp4",
-      "poster": "assets/posters/gal_robot_toy_16.jpg"
+      "subject": "cat1",
+      "category": "animal",
+      "prompt_label": "cat chasing a dragonfly",
+      "video": "assets/videos/gal_cat1_1.mp4",
+      "poster": "assets/posters/gal_cat1_1.jpg"
+    },
+    {
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny spinning on a trampoline",
+      "video": "assets/videos/gal_plushie_bunny_7.mp4",
+      "poster": "assets/posters/gal_plushie_bunny_7.jpg"
+    },
+    {
+      "subject": "anime_1",
+      "category": "anime",
+      "prompt_label": "anime character running through a meadow",
+      "video": "assets/videos/gal_anime_1_12.mp4",
+      "poster": "assets/posters/gal_anime_1_12.jpg"
+    },
+    {
+      "subject": "anime_1",
+      "category": "anime",
+      "prompt_label": "anime character in a forest",
+      "video": "assets/videos/gal_anime_1_11.mp4",
+      "poster": "assets/posters/gal_anime_1_11.jpg"
+    },
+    {
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny surfing a wave",
+      "video": "assets/videos/gal_plushie_bunny_6.mp4",
+      "poster": "assets/posters/gal_plushie_bunny_6.jpg"
     }
   ],
   "comparisons": [

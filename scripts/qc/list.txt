@@ -1,0 +1,17 @@
+scripts/qc/g00.jpg
+scripts/qc/g01.jpg
+scripts/qc/g02.jpg
+scripts/qc/g03.jpg
+scripts/qc/g04.jpg
+scripts/qc/g05.jpg
+scripts/qc/g06.jpg
+scripts/qc/g07.jpg
+scripts/qc/g08.jpg
+scripts/qc/g09.jpg
+scripts/qc/g10.jpg
+scripts/qc/g11.jpg
+scripts/qc/g12.jpg
+scripts/qc/g13.jpg
+scripts/qc/g14.jpg
+scripts/qc/g15.jpg
+scripts/qc/g16.jpg
