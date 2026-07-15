@@ -1,0 +1,352 @@
+{
+  "gallery": [
+    {
+      "subject": "cat1",
+      "category": "animal",
+      "prompt_label": "cat walking through a garden",
+      "video": "assets/videos/gal_cat1_0.mp4",
+      "poster": "assets/posters/gal_cat1_0.jpg"
+    },
+    {
+      "subject": "cat1",
+      "category": "animal",
+      "prompt_label": "cat chasing a dragonfly",
+      "video": "assets/videos/gal_cat1_1.mp4",
+      "poster": "assets/posters/gal_cat1_1.jpg"
+    },
+    {
+      "subject": "cat1",
+      "category": "animal",
+      "prompt_label": "cat jumping over logs",
+      "video": "assets/videos/gal_cat1_2.mp4",
+      "poster": "assets/posters/gal_cat1_2.jpg"
+    },
+    {
+      "subject": "dog2",
+      "category": "animal",
+      "prompt_label": "dog chasing a frisbee",
+      "video": "assets/videos/gal_dog2_3.mp4",
+      "poster": "assets/posters/gal_dog2_3.jpg"
+    },
+    {
+      "subject": "dog2",
+      "category": "animal",
+      "prompt_label": "dog running in a meadow",
+      "video": "assets/videos/gal_dog2_4.mp4",
+      "poster": "assets/posters/gal_dog2_4.jpg"
+    },
+    {
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny hopping in a meadow",
+      "video": "assets/videos/gal_plushie_bunny_5.mp4",
+      "poster": "assets/posters/gal_plushie_bunny_5.jpg"
+    },
+    {
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny surfing a wave",
+      "video": "assets/videos/gal_plushie_bunny_6.mp4",
+      "poster": "assets/posters/gal_plushie_bunny_6.jpg"
+    },
+    {
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny spinning on a trampoline",
+      "video": "assets/videos/gal_plushie_bunny_7.mp4",
+      "poster": "assets/posters/gal_plushie_bunny_7.jpg"
+    },
+    {
+      "subject": "actionfigure_1",
+      "category": "action-figure",
+      "prompt_label": "action figure racing on a track",
+      "video": "assets/videos/gal_actionfigure_1_8.mp4",
+      "poster": "assets/posters/gal_actionfigure_1_8.jpg"
+    },
+    {
+      "subject": "actionfigure_1",
+      "category": "action-figure",
+      "prompt_label": "action figure spinning on a turntable",
+      "video": "assets/videos/gal_actionfigure_1_9.mp4",
+      "poster": "assets/posters/gal_actionfigure_1_9.jpg"
+    },
+    {
+      "subject": "anime_1",
+      "category": "anime",
+      "prompt_label": "anime character scene 1",
+      "video": "assets/videos/gal_anime_1_10.mp4",
+      "poster": "assets/posters/gal_anime_1_10.jpg"
+    },
+    {
+      "subject": "anime_1",
+      "category": "anime",
+      "prompt_label": "anime character scene 16",
+      "video": "assets/videos/gal_anime_1_11.mp4",
+      "poster": "assets/posters/gal_anime_1_11.jpg"
+    },
+    {
+      "subject": "anime_1",
+      "category": "anime",
+      "prompt_label": "anime character scene 31",
+      "video": "assets/videos/gal_anime_1_12.mp4",
+      "poster": "assets/posters/gal_anime_1_12.jpg"
+    },
+    {
+      "subject": "duck_toy",
+      "category": "toy",
+      "prompt_label": "duck toy floating on a pond",
+      "video": "assets/videos/gal_duck_toy_13.mp4",
+      "poster": "assets/posters/gal_duck_toy_13.jpg"
+    },
+    {
+      "subject": "duck_toy",
+      "category": "toy",
+      "prompt_label": "duck toy surfing a wave",
+      "video": "assets/videos/gal_duck_toy_14.mp4",
+      "poster": "assets/posters/gal_duck_toy_14.jpg"
+    },
+    {
+      "subject": "robot_toy",
+      "category": "toy",
+      "prompt_label": "robot toy circling a chessboard",
+      "video": "assets/videos/gal_robot_toy_15.mp4",
+      "poster": "assets/posters/gal_robot_toy_15.jpg"
+    },
+    {
+      "subject": "robot_toy",
+      "category": "toy",
+      "prompt_label": "robot toy scene 5",
+      "video": "assets/videos/gal_robot_toy_16.mp4",
+      "poster": "assets/posters/gal_robot_toy_16.jpg"
+    }
+  ],
+  "comparisons": [
+    {
+      "subject": "actionfigure_1",
+      "prompt_label": "action figure running",
+      "methods": {
+        "ours": {
+          "video": "assets/videos/cmp_actionfigure_1_ours.mp4",
+          "poster": "assets/posters/cmp_actionfigure_1_ours.jpg"
+        },
+        "customcrafter": {
+          "video": "assets/videos/cmp_actionfigure_1_customcrafter.mp4",
+          "poster": "assets/posters/cmp_actionfigure_1_customcrafter.jpg"
+        },
+        "videobooth": {
+          "video": "assets/videos/cmp_actionfigure_1_videobooth.mp4",
+          "poster": "assets/posters/cmp_actionfigure_1_videobooth.jpg"
+        },
+        "pia": {
+          "video": "assets/videos/cmp_actionfigure_1_pia.mp4",
+          "poster": "assets/posters/cmp_actionfigure_1_pia.jpg"
+        }
+      }
+    },
+    {
+      "subject": "actionfigure_2",
+      "prompt_label": "action figure running",
+      "methods": {
+        "ours": {
+          "video": "assets/videos/cmp_actionfigure_2_ours.mp4",
+          "poster": "assets/posters/cmp_actionfigure_2_ours.jpg"
+        },
+        "customcrafter": {
+          "video": "assets/videos/cmp_actionfigure_2_customcrafter.mp4",
+          "poster": "assets/posters/cmp_actionfigure_2_customcrafter.jpg"
+        },
+        "videobooth": {
+          "video": "assets/videos/cmp_actionfigure_2_videobooth.mp4",
+          "poster": "assets/posters/cmp_actionfigure_2_videobooth.jpg"
+        },
+        "pia": {
+          "video": "assets/videos/cmp_actionfigure_2_pia.mp4",
+          "poster": "assets/posters/cmp_actionfigure_2_pia.jpg"
+        }
+      }
+    },
+    {
+      "subject": "anime_1",
+      "prompt_label": "anime character in motion",
+      "methods": {
+        "ours": {
+          "video": "assets/videos/cmp_anime_1_ours.mp4",
+          "poster": "assets/posters/cmp_anime_1_ours.jpg"
+        },
+        "customcrafter": {
+          "video": "assets/videos/cmp_anime_1_customcrafter.mp4",
+          "poster": "assets/posters/cmp_anime_1_customcrafter.jpg"
+        },
+        "videobooth": {
+          "video": "assets/videos/cmp_anime_1_videobooth.mp4",
+          "poster": "assets/posters/cmp_anime_1_videobooth.jpg"
+        },
+        "pia": {
+          "video": "assets/videos/cmp_anime_1_pia.mp4",
+          "poster": "assets/posters/cmp_anime_1_pia.jpg"
+        }
+      }
+    },
+    {
+      "subject": "robot_toy",
+      "prompt_label": "robot toy in motion",
+      "methods": {
+        "ours": {
+          "video": "assets/videos/cmp_robot_toy_ours.mp4",
+          "poster": "assets/posters/cmp_robot_toy_ours.jpg"
+        },
+        "customcrafter": {
+          "video": "assets/videos/cmp_robot_toy_customcrafter.mp4",
+          "poster": "assets/posters/cmp_robot_toy_customcrafter.jpg"
+        },
+        "videobooth": {
+          "video": "assets/videos/cmp_robot_toy_videobooth.mp4",
+          "poster": "assets/posters/cmp_robot_toy_videobooth.jpg"
+        },
+        "pia": {
+          "video": "assets/videos/cmp_robot_toy_pia.mp4",
+          "poster": "assets/posters/cmp_robot_toy_pia.jpg"
+        }
+      }
+    }
+  ],
+  "causal_map": {
+    "prompt_label": "a bicycle",
+    "restored_by_layer": {
+      "0": {
+        "video": "assets/videos/causal_restored_l0.mp4"
+      },
+      "1": {
+        "video": "assets/videos/causal_restored_l1.mp4"
+      },
+      "2": {
+        "video": "assets/videos/causal_restored_l2.mp4"
+      },
+      "3": {
+        "video": "assets/videos/causal_restored_l3.mp4"
+      },
+      "4": {
+        "video": "assets/videos/causal_restored_l4.mp4"
+      },
+      "5": {
+        "video": "assets/videos/causal_restored_l5.mp4"
+      },
+      "6": {
+        "video": "assets/videos/causal_restored_l6.mp4"
+      },
+      "7": {
+        "video": "assets/videos/causal_restored_l7.mp4"
+      },
+      "8": {
+        "video": "assets/videos/causal_restored_l8.mp4"
+      },
+      "9": {
+        "video": "assets/videos/causal_restored_l9.mp4"
+      },
+      "10": {
+        "video": "assets/videos/causal_restored_l10.mp4"
+      },
+      "11": {
+        "video": "assets/videos/causal_restored_l11.mp4"
+      },
+      "12": {
+        "video": "assets/videos/causal_restored_l12.mp4"
+      },
+      "13": {
+        "video": "assets/videos/causal_restored_l13.mp4"
+      },
+      "14": {
+        "video": "assets/videos/causal_restored_l14.mp4"
+      },
+      "15": {
+        "video": "assets/videos/causal_restored_l15.mp4"
+      },
+      "16": {
+        "video": "assets/videos/causal_restored_l16.mp4"
+      },
+      "17": {
+        "video": "assets/videos/causal_restored_l17.mp4"
+      },
+      "18": {
+        "video": "assets/videos/causal_restored_l18.mp4"
+      },
+      "19": {
+        "video": "assets/videos/causal_restored_l19.mp4"
+      },
+      "20": {
+        "video": "assets/videos/causal_restored_l20.mp4"
+      },
+      "21": {
+        "video": "assets/videos/causal_restored_l21.mp4"
+      },
+      "22": {
+        "video": "assets/videos/causal_restored_l22.mp4"
+      },
+      "23": {
+        "video": "assets/videos/causal_restored_l23.mp4"
+      },
+      "24": {
+        "video": "assets/videos/causal_restored_l24.mp4"
+      },
+      "25": {
+        "video": "assets/videos/causal_restored_l25.mp4"
+      },
+      "26": {
+        "video": "assets/videos/causal_restored_l26.mp4"
+      },
+      "27": {
+        "video": "assets/videos/causal_restored_l27.mp4"
+      },
+      "28": {
+        "video": "assets/videos/causal_restored_l28.mp4"
+      },
+      "29": {
+        "video": "assets/videos/causal_restored_l29.mp4"
+      },
+      "30": {
+        "video": "assets/videos/causal_restored_l30.mp4"
+      },
+      "31": {
+        "video": "assets/videos/causal_restored_l31.mp4"
+      },
+      "32": {
+        "video": "assets/videos/causal_restored_l32.mp4"
+      },
+      "33": {
+        "video": "assets/videos/causal_restored_l33.mp4"
+      },
+      "34": {
+        "video": "assets/videos/causal_restored_l34.mp4"
+      },
+      "35": {
+        "video": "assets/videos/causal_restored_l35.mp4"
+      },
+      "36": {
+        "video": "assets/videos/causal_restored_l36.mp4"
+      },
+      "37": {
+        "video": "assets/videos/causal_restored_l37.mp4"
+      },
+      "38": {
+        "video": "assets/videos/causal_restored_l38.mp4"
+      },
+      "39": {
+        "video": "assets/videos/causal_restored_l39.mp4"
+      },
+      "40": {
+        "video": "assets/videos/causal_restored_l40.mp4"
+      },
+      "41": {
+        "video": "assets/videos/causal_restored_l41.mp4"
+      }
+    },
+    "clean": {
+      "video": "assets/videos/causal_clean.mp4",
+      "poster": "assets/posters/causal_clean.jpg"
+    },
+    "corrupted": {
+      "video": "assets/videos/causal_corrupted.mp4",
+      "poster": "assets/posters/causal_corrupted.jpg"
+    }
+  }
+}

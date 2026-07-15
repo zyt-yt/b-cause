@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B-CAUSE: Block-wise Causal Exploration for Subject-driven Video Generation</title>
+<meta name="description" content="B-CAUSE traces block-level causal roles in video diffusion transformers, then selectively fine-tunes appearance blocks for subject customization while preserving the pretrained motion prior.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">B&#8209;<b>CAUSE</b></span>
+    <div class="nav-links">
+      <a href="#causal-map">Causal Map</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#comparisons">Comparisons</a>
+      <a href="#quant">Metrics</a>
+      <a href="#cite">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero wrap">
+  <div class="venue">Preprint &middot; 2026</div>
+  <h1>B<span class="amp">&#8209;</span>CAUSE</h1>
+  <p class="subtitle">Block-wise Causal Exploration for Subject-driven Video Generation</p>
+  <!-- AUTHORS: intentionally omitted for the portfolio version (see NIGHT_LOG). -->
+  <p class="tagline">
+    In diffusion transformers, appearance and motion are entangled inside shared attention blocks &mdash;
+    so naive customization corrupts the motion prior. B&#8209;CAUSE <b>causally traces</b> which blocks encode
+    identity versus dynamics, then fine-tunes <span class="hl-app">appearance blocks</span> for identity while
+    steering <span class="hl-mot">motion blocks</span> at inference to keep motion natural.
+  </p>
+  <div class="btn-row">
+    <a class="btn primary" href="#" data-placeholder>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>
+      Paper <span class="placeholder-tag">TBD</span>
+    </a>
+    <a class="btn" href="#" data-placeholder>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 20 4.8 4.9 4.9 0 0 0 19.9 1S18.7.6 16 2.5a13.4 13.4 0 0 0-7 0C6.3.6 5.1 1 5.1 1A4.9 4.9 0 0 0 5 4.8 5.2 5.2 0 0 0 3.7 8.4c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.6V22"/></svg>
+      Code <span class="placeholder-tag">TBD</span>
+    </a>
+    <a class="btn" href="#" data-placeholder>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+      arXiv <span class="placeholder-tag">TBD</span>
+    </a>
+  </div>
+
+  <!-- hero video grid (populated from data/media.json) -->
+  <div class="hero-grid" id="heroGrid" aria-label="Representative results"></div>
+</header>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <div class="problem-grid">
+      <div>
+        <h2 class="section-title">Customizing a DiT video model breaks its motion</h2>
+        <p>
+          U-Net video models keep <span class="hl-app">spatial</span> and <span class="hl-mot">temporal</span>
+          attention in separate modules, so identity can be tuned without touching motion. Modern
+          <span class="key">diffusion transformers</span> (e.g. CogVideoX) instead entangle both inside
+          <span class="key">shared spatio-temporal attention blocks</span>.
+        </p>
+        <p>
+          The consequence: applying a LoRA uniformly across all blocks to learn a subject <span class="key">also
+          overwrites the pretrained motion prior</span> &mdash; identity improves, but the video stiffens or drifts.
+          The open question is <em>which</em> blocks carry appearance vs. motion, and whether that split can be
+          exploited.
+        </p>
+      </div>
+      <figure class="figure" style="margin:0">
+        <img src="assets/img/pipeline-1.png" alt="B-CAUSE causal tracing and block utilization overview" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CAUSAL MAP (signature interactive) -->
+<section id="causal-map" class="alt">
+  <div class="wrap cm-wrap">
+    <p class="eyebrow">Signature analysis &middot; interactive</p>
+    <h2 class="section-title">A causal map of all 42 blocks</h2>
+    <p class="section-lead">
+      For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio and measure how much restoring
+      that one block recovers, separately for <span class="hl-app">appearance</span> (30 object subjects) and
+      <span class="hl-mot">motion</span> (30 action subjects). The result is a clear functional organization.
+      <b>Hover a block</b> to see its scores and the video it restores.
+    </p>
+
+    <div class="cm-legend" id="cmLegend"></div>
+
+    <div class="cm-layout">
+      <div>
+        <div class="cm-chart">
+          <div class="cm-bars" id="cmBars"></div>
+          <div class="cm-axis"><span>Block 0 &nbsp;(early / low-level)</span><span>Block 41 &nbsp;(late / semantic)</span></div>
+        </div>
+      </div>
+      <aside class="cm-panel">
+        <div class="cm-video"><video id="cmVideo" muted loop playsinline></video></div>
+        <div class="cm-readout" id="cmReadout"></div>
+        <p class="cm-hint">Bars show z-normalized restoration strength. Height = restoration recovered by that block; blue = appearance, orange = motion.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="method">
+  <div class="wrap">
+    <p class="eyebrow">Method</p>
+    <h2 class="section-title">A dual-phase strategy that follows the causal map</h2>
+    <p class="section-lead">
+      The map hands us four block groups. We use them to split customization into a training phase that touches
+      only identity and an inference phase that restores dynamics &mdash; never fighting each other.
+    </p>
+    <figure class="figure">
+      <img src="assets/img/pipeline-1.png" alt="B-CAUSE full pipeline: causal tracing, contribution analysis, and appearance/motion block utilization" loading="lazy">
+      <figcaption><b>(A)</b> Block-wise causal tracing &nbsp;&middot;&nbsp; <b>(B)</b> Per-layer appearance / motion contribution &nbsp;&middot;&nbsp; <b>(C)</b> Training on appearance blocks, inference-time guidance from motion blocks.</figcaption>
+    </figure>
+    <div class="steps">
+      <div class="step">
+        <div class="n">PHASE 1 &middot; TRAIN</div>
+        <h3>Fine-tune appearance blocks only</h3>
+        <p>Lightweight LoRA adapters are placed on <span class="hl-app">appearance-sensitive blocks</span> (plus the shared core), trained with a masked reconstruction loss and a cross-attention loss to encode subject identity &mdash; leaving motion blocks frozen.</p>
+      </div>
+      <div class="step">
+        <div class="n">PHASE 2 &middot; INFERENCE</div>
+        <h3>Guide with motion blocks</h3>
+        <p>At denoising time we read feature deltas from <span class="hl-mot">motion-sensitive blocks</span> and apply a block-conditioned latent update, reintroducing the base model's natural dynamics under a LoRA-strength schedule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS GALLERY -->
+<section id="results" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Results</p>
+    <h2 class="section-title">Subject-driven generation across categories</h2>
+    <p class="section-lead">Same subject, diverse motions and scenes &mdash; identity preserved, motion intact.</p>
+    <div class="filter-row" id="galFilters"></div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- COMPARISONS -->
+<section id="comparisons">
+  <div class="wrap">
+    <p class="eyebrow">Comparisons</p>
+    <h2 class="section-title">B-CAUSE vs. prior subject-driven methods</h2>
+    <p class="section-lead">Same subject and prompt, generated by each method. Ours is outlined.</p>
+    <div id="cmpContainer"></div>
+  </div>
+</section>
+
+<!-- QUANTITATIVE -->
+<section id="quant" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Quantitative</p>
+    <h2 class="section-title">Identity, alignment, and temporal quality</h2>
+    <p class="section-lead" id="quantLead">CogVideoX-5B backbone. Higher is better for all columns.</p>
+    <div class="tbl-scroll" id="metricsTable"></div>
+    <p class="tbl-note" id="metricsNote"></p>
+  </div>
+</section>
+
+<!-- CITE -->
+<section id="cite">
+  <div class="wrap">
+    <p class="eyebrow">Cite</p>
+    <h2 class="section-title">BibTeX</h2>
+    <pre class="bibtex" id="bibtex"><button class="copy-btn" onclick="copyBib()">Copy</button><span class="k">@inproceedings</span>{bcause2026,
+  <span class="k">title</span>     = {<span class="s">B-CAUSE: Block-wise Causal Exploration for Subject-driven Video Generation</span>},
+  <span class="k">author</span>    = {<span class="s">TBD</span>},
+  <span class="k">booktitle</span> = {<span class="s">TBD</span>},
+  <span class="k">year</span>      = {<span class="s">2026</span>}
+}</pre>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>B-CAUSE &middot; Block-wise Causal Exploration for Subject-driven Video Generation</p>
+    <p style="margin-top:6px">Page template hand-built &middot; videos compressed for the web.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/causal-map.js"></script>
+</body>
+</html>

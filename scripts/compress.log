@@ -1,0 +1,27 @@
+== gallery ==
+  gal_cat1_0 ok
+  gal_cat1_1 ok
+  gal_cat1_2 ok
+  gal_dog2_3 ok
+  gal_dog2_4 ok
+  gal_plushie_bunny_5 ok
+  gal_plushie_bunny_6 ok
+  gal_plushie_bunny_7 ok
+  gal_actionfigure_1_8 ok
+  gal_actionfigure_1_9 ok
+  gal_anime_1_10 ok
+  gal_anime_1_11 ok
+  gal_anime_1_12 ok
+  gal_duck_toy_13 ok
+  gal_duck_toy_14 ok
+  gal_robot_toy_15 ok
+  gal_robot_toy_16 ok
+== comparisons ==
+  actionfigure_1 ['ours', 'customcrafter', 'videobooth', 'pia']
+  actionfigure_2 ['ours', 'customcrafter', 'videobooth', 'pia']
+  anime_1 ['ours', 'customcrafter', 'videobooth', 'pia']
+  robot_toy ['ours', 'customcrafter', 'videobooth', 'pia']
+== causal map ==
+  restored layers: 42
+
+DONE. assets/videos total = 29.2 MB

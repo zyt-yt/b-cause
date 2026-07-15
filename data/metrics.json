@@ -1,0 +1,17 @@
+{
+  "lead": "CogVideoX-5B backbone, 26 subjects. Higher is better for every column. <b>Best</b> in bold.",
+  "columns": [
+    { "key": "clip_t", "label": "CLIP-T", "arrow": "&#8593;" },
+    { "key": "clip_i", "label": "CLIP-I", "arrow": "&#8593;" },
+    { "key": "dino_i", "label": "DINO-I", "arrow": "&#8593;" },
+    { "key": "tcons",  "label": "T. Cons.", "arrow": "&#8593;" }
+  ],
+  "best": { "clip_t": "B-CAUSE (Ours)", "clip_i": "B-CAUSE (Ours)", "dino_i": "B-CAUSE (Ours)", "tcons": "CustomCrafter" },
+  "rows": [
+    { "method": "DreamVideo",    "values": { "clip_t": "0.2927", "clip_i": "0.7374", "dino_i": "0.6020", "tcons": "0.9632" } },
+    { "method": "VideoBooth",    "values": { "clip_t": "0.2735", "clip_i": "0.7067", "dino_i": "0.6409", "tcons": "0.9684" } },
+    { "method": "CustomCrafter", "values": { "clip_t": "0.3008", "clip_i": "0.7387", "dino_i": "0.6560", "tcons": "0.9713" } },
+    { "method": "B-CAUSE (Ours)", "ours": true, "values": { "clip_t": "0.3034", "clip_i": "0.7693", "dino_i": "0.6606", "tcons": "0.9699" } }
+  ],
+  "note": "Numbers from the paper's main comparison table (CogVideoX-5B). A Full-LoRA (all-blocks) ablation row and an optical-flow column are reported separately in the paper/supplementary."
+}

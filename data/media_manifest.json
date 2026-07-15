@@ -1,0 +1,190 @@
+{
+  "gallery": [
+    {
+      "subject": "cat1",
+      "category": "animal",
+      "prompt_label": "cat walking through a garden",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/cat1/v3_enhanced/main/walking_garden_seed1234.mp4"
+    },
+    {
+      "subject": "cat1",
+      "category": "animal",
+      "prompt_label": "cat chasing a dragonfly",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/cat1/v3_enhanced/main/chasing_dragonfly_seed7890.mp4"
+    },
+    {
+      "subject": "cat1",
+      "category": "animal",
+      "prompt_label": "cat jumping over logs",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/cat1/v3_enhanced/main/jumping_logs_seed1234.mp4"
+    },
+    {
+      "subject": "dog2",
+      "category": "animal",
+      "prompt_label": "dog chasing a frisbee",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/dog2/v3_enhanced/main/chasing_frisbee_seed7890.mp4"
+    },
+    {
+      "subject": "dog2",
+      "category": "animal",
+      "prompt_label": "dog running in a meadow",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/dog2/v3_enhanced/main/running_meadow_seed7890.mp4"
+    },
+    {
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny hopping in a meadow",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/plushie_bunny/v3_enhanced/main/hopping_meadow_seed7890.mp4"
+    },
+    {
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny surfing a wave",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/plushie_bunny/v3_enhanced/main/surfing_wave_seed7890.mp4"
+    },
+    {
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny spinning on a trampoline",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/plushie_bunny/v3_enhanced/main/spinning_trampoline_seed7890.mp4"
+    },
+    {
+      "subject": "actionfigure_1",
+      "category": "action-figure",
+      "prompt_label": "action figure racing on a track",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/actionfigure_1/v3_enhanced/main/racing_track_seed7890.mp4"
+    },
+    {
+      "subject": "actionfigure_1",
+      "category": "action-figure",
+      "prompt_label": "action figure spinning on a turntable",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/actionfigure_1/v3_enhanced/main/spinning_turntable_seed7890.mp4"
+    },
+    {
+      "subject": "anime_1",
+      "category": "anime",
+      "prompt_label": "anime character scene 1",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/anime_1/v3_enhanced/main/p1_seed7890.mp4"
+    },
+    {
+      "subject": "anime_1",
+      "category": "anime",
+      "prompt_label": "anime character scene 16",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/anime_1/v3_enhanced/main/p16_seed7890.mp4"
+    },
+    {
+      "subject": "anime_1",
+      "category": "anime",
+      "prompt_label": "anime character scene 31",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/anime_1/v3_enhanced/main/p31_seed7890.mp4"
+    },
+    {
+      "subject": "duck_toy",
+      "category": "toy",
+      "prompt_label": "duck toy floating on a pond",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/duck_toy/v3_enhanced/main/floating_pond_seed7890.mp4"
+    },
+    {
+      "subject": "duck_toy",
+      "category": "toy",
+      "prompt_label": "duck toy surfing a wave",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/duck_toy/v3_enhanced/main/surfing_wave_seed7890.mp4"
+    },
+    {
+      "subject": "robot_toy",
+      "category": "toy",
+      "prompt_label": "robot toy circling a chessboard",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/robot_toy/v3_enhanced/main/circling_chess_seed7890.mp4"
+    },
+    {
+      "subject": "robot_toy",
+      "category": "toy",
+      "prompt_label": "robot toy scene 5",
+      "src": "/data3/lizn/CogVideoX-finetune/DATASETS/robot_toy/v3_enhanced/main/p5_seed7890.mp4"
+    }
+  ],
+  "comparisons": [
+    {
+      "subject": "actionfigure_1",
+      "prompt_label": "action figure running",
+      "ours": "/data3/lizn/CogVideoX-finetune/DATASETS/actionfigure_1/v3_enhanced/main/running_castle_seed7890.mp4",
+      "customcrafter": "/data3/lizn/CustomCrafter/outputs/actionfigure_1/samples/0000_randk0.mp4",
+      "videobooth": "/data3/lizn/VideoBooth/sample_results/actionfigure_1_prompt01.mp4",
+      "pia": "/data3/lizn/PIA/data/actionfigure_1/generated_video_2/prompt10_seed396392420.mp4"
+    },
+    {
+      "subject": "actionfigure_2",
+      "prompt_label": "action figure running",
+      "ours": "/data3/lizn/CogVideoX-finetune/DATASETS/actionfigure_2/v3_enhanced/main/running_city_seed7890.mp4",
+      "customcrafter": "/data3/lizn/CustomCrafter/outputs/actionfigure_2/samples/0000_randk0.mp4",
+      "videobooth": "/data3/lizn/VideoBooth/sample_results/actionfigure_2_prompt01.mp4",
+      "pia": "/data3/lizn/PIA/data/actionfigure_2/generated_video_2/prompt16_seed1484738941.mp4"
+    },
+    {
+      "subject": "anime_1",
+      "prompt_label": "anime character in motion",
+      "ours": "/data3/lizn/CogVideoX-finetune/DATASETS/anime_1/v3_enhanced/main/p1_seed7890.mp4",
+      "customcrafter": "/data3/lizn/CustomCrafter/outputs/anime_1/samples/0000_randk0.mp4",
+      "videobooth": "/data3/lizn/VideoBooth/sample_results/anime_1_prompt01.mp4",
+      "pia": "/data3/lizn/PIA/data/anime_1/generated_video_2/prompt10_seed509543965.mp4"
+    },
+    {
+      "subject": "robot_toy",
+      "prompt_label": "robot toy in motion",
+      "ours": "/data3/lizn/CogVideoX-finetune/DATASETS/robot_toy/v3_enhanced/main/p5_seed7890.mp4",
+      "customcrafter": "/data3/lizn/CustomCrafter/outputs/robot_toy/samples/0000_randk0.mp4",
+      "videobooth": "/data3/lizn/VideoBooth/sample_results/robot_toy_prompt01.mp4",
+      "pia": "/data3/lizn/PIA/data/robot_toy/generated_video_2/prompt10_seed1996859971.mp4"
+    }
+  ],
+  "causal_map": {
+    "prompt_dir": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322",
+    "prompt_label": "a bicycle",
+    "clean": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/clean_all_layers_seed.mp4",
+    "corrupted": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/corrupted_all_layers_seed.mp4",
+    "restored_by_layer": {
+      "0": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer0_seed8546.mp4",
+      "1": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer1_seed8546.mp4",
+      "2": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer2_seed8546.mp4",
+      "3": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer3_seed8546.mp4",
+      "4": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer4_seed8546.mp4",
+      "5": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer5_seed8546.mp4",
+      "6": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer6_seed8546.mp4",
+      "7": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer7_seed8546.mp4",
+      "8": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer8_seed8546.mp4",
+      "9": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer9_seed8546.mp4",
+      "10": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer10_seed8546.mp4",
+      "11": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer11_seed8546.mp4",
+      "12": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer12_seed8546.mp4",
+      "13": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer13_seed8546.mp4",
+      "14": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer14_seed8546.mp4",
+      "15": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer15_seed8546.mp4",
+      "16": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer16_seed8546.mp4",
+      "17": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer17_seed8546.mp4",
+      "18": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer18_seed8546.mp4",
+      "19": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer19_seed8546.mp4",
+      "20": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer20_seed8546.mp4",
+      "21": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer21_seed8546.mp4",
+      "22": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer22_seed8546.mp4",
+      "23": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer23_seed8546.mp4",
+      "24": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer24_seed8546.mp4",
+      "25": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer25_seed8546.mp4",
+      "26": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer26_seed8546.mp4",
+      "27": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer27_seed8546.mp4",
+      "28": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer28_seed8546.mp4",
+      "29": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer29_seed8546.mp4",
+      "30": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer30_seed8546.mp4",
+      "31": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer31_seed8546.mp4",
+      "32": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer32_seed8546.mp4",
+      "33": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer33_seed8546.mp4",
+      "34": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer34_seed8546.mp4",
+      "35": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer35_seed8546.mp4",
+      "36": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer36_seed8546.mp4",
+      "37": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer37_seed8546.mp4",
+      "38": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer38_seed8546.mp4",
+      "39": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer39_seed8546.mp4",
+      "40": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer40_seed8546.mp4",
+      "41": "/data3/lizn/CogVideoX-finetune/causal_tracing_analysis/output_videos/prompt6_bicycle_8546_15322/restored_attn_layer41_seed8546.mp4"
+    }
+  }
+}
