@@ -179,9 +179,13 @@ h2.section-title {
 .cm-half { height: 148px; width: 100%; display: flex; justify-content: center; }
 .cm-half.up { align-items: flex-end; }
 .cm-half.down { align-items: flex-start; }
-.cm-half .bar { width: 62%; min-height: 1.5px; transition: opacity .15s, filter .15s; }
+.cm-half .bar { position: relative; width: 62%; min-height: 1.5px; transition: opacity .15s, filter .15s; }
 .cm-half.up .bar { border-radius: 3px 3px 0 0; }
 .cm-half.down .bar { border-radius: 0 0 3px 3px; }
+.cm-dot { position: absolute; left: 50%; border-radius: 50%; box-shadow: 0 0 0 1.5px var(--surface); }
+.cm-half.up .cm-dot { top: 0; transform: translate(-50%, -50%); }
+.cm-half.down .cm-dot { bottom: 0; transform: translate(-50%, 50%); }
+.cm-col.dim .cm-dot { opacity: .14; }
 .cm-baseline { position: absolute; left: 0; right: 0; top: 148px; height: 0;
   border-top: 1.5px solid var(--hairline-strong); pointer-events: none; z-index: 1; }
 .cm-col .lbl { font-size: 9px; color: var(--muted); margin-top: 5px; font-family: var(--mono);

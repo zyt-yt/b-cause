@@ -90,8 +90,10 @@
       that one block recovers, separately for <span class="hl-app">appearance</span> (30 object subjects) and
       <span class="hl-mot">motion</span> (30 action subjects). Each bar is a block's <b>specialization</b>
       &mdash; the z-scored gap between its appearance and motion contribution. Bars rise for
-      appearance-leaning blocks and fall for motion-leaning ones, so the functional split is read at a glance.
-      <b>Hover a block</b> for its exact scores.
+      appearance-leaning blocks and fall for motion-leaning ones, so the functional split is read at a glance;
+      each bar's <b>dot</b> marks overall restoration strength, so the <span style="color:var(--core);font-weight:600">core</span>
+      integrators (strong on both axes) stand out even where they sit near the center.
+      <b>Hover a block</b> to see its role.
     </p>
 
     <div class="cm-legend" id="cmLegend"></div>
@@ -99,7 +101,7 @@
     <div class="cm-dirlegend">
       <span class="up">&#9650; appearance-leaning</span>
       <span class="down">&#9660; motion-leaning</span>
-      <span class="nrm">bar height = specialization&nbsp; z<sub>app</sub>&minus;z<sub>mot</sub></span>
+      <span class="nrm">bar = specialization &nbsp;&middot;&nbsp; &#9679; dot = overall strength (core blocks largest)</span>
     </div>
     <div class="cm-chart">
       <div class="cm-bars" id="cmBars"></div>

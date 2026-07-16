@@ -49,6 +49,13 @@
       const bar = el("div", "bar");
       bar.style.height = (Math.abs(b.z_diff) / maxAbs * HALF) + "px";
       bar.style.background = GROUP[b.group].color;
+      // magnitude dot at the bar tip: size = overall restoration strength (mean Q).
+      // Core blocks are strong on both axes -> biggest dots (their defining trait).
+      const meanQ = (b.q_app + b.q_mot) / 2;
+      const r = 3 + Math.pow(Math.max(0, (meanQ - 0.44) / 0.45), 1.2) * 8;
+      const dot = el("div", "cm-dot");
+      dot.style.cssText = `width:${(r * 2).toFixed(1)}px;height:${(r * 2).toFixed(1)}px;background:${GROUP[b.group].color};`;
+      bar.appendChild(dot);
       (b.z_diff >= 0 ? up : down).appendChild(bar);
       const lbl = el("div", "lbl", (b.block % 4 === 0 || b.group === "core") ? b.block : "");
       col.appendChild(up); col.appendChild(down); col.appendChild(lbl);
@@ -73,12 +80,8 @@
 
     function renderReadout(b) {
       const g = GROUP[b.group];
-      const sgn = (v) => (v > 0 ? "+" : "") + v.toFixed(2);
       readoutEl.innerHTML = `
         <span class="ro-block">Block ${b.block}<span class="grp ${g.cls}">${g.label}</span></span>
-        <span class="ro-m app">Q<sub>app</sub> <b>${b.q_app.toFixed(2)}</b></span>
-        <span class="ro-m mot">Q<sub>mot</sub> <b>${b.q_mot.toFixed(2)}</b></span>
-        <span class="ro-m">z<sub>diff</sub> <b>${sgn(b.z_diff)}</b></span>
         <span class="ro-desc">${g.desc}</span>`;
     }
 
