@@ -91,30 +91,26 @@
       <span class="hl-mot">motion</span> (30 action subjects). Each bar is a block's <b>specialization</b>
       &mdash; the z-scored gap between its appearance and motion contribution. Bars rise for
       appearance-leaning blocks and fall for motion-leaning ones, so the functional split is read at a glance.
-      <b>Hover a block</b> for its scores and the clip it restores.
+      <b>Hover a block</b> for its exact scores.
     </p>
 
     <div class="cm-legend" id="cmLegend"></div>
 
-    <div class="cm-layout">
-      <div>
-        <div class="cm-dirlegend">
-          <span class="up">&#9650; appearance-leaning</span>
-          <span class="down">&#9660; motion-leaning</span>
-          <span class="nrm">bar height = specialization&nbsp; z<sub>app</sub>&minus;z<sub>mot</sub></span>
-        </div>
-        <div class="cm-chart">
-          <div class="cm-bars" id="cmBars"></div>
-          <div class="cm-axis"><span>Block 0 &nbsp;(early / low-level)</span><span>Block 41 &nbsp;(late / semantic)</span></div>
-        </div>
-      </div>
-      <aside class="cm-panel">
-        <div class="cm-video"><video id="cmVideo" muted loop playsinline></video></div>
-        <p class="cm-vidcap" id="cmVidCap"></p>
-        <div class="cm-readout" id="cmReadout"></div>
-        <p class="cm-hint">Restored clip = the generation you recover when <b>only this block's</b> clean activation is reinserted into a corrupted run &mdash; the causal-tracing probe (tracing prompt: <i>&ldquo;a bicycle&rdquo;</i>).</p>
-      </aside>
+    <div class="cm-dirlegend">
+      <span class="up">&#9650; appearance-leaning</span>
+      <span class="down">&#9660; motion-leaning</span>
+      <span class="nrm">bar height = specialization&nbsp; z<sub>app</sub>&minus;z<sub>mot</sub></span>
     </div>
+    <div class="cm-chart">
+      <div class="cm-bars" id="cmBars"></div>
+      <div class="cm-axis"><span>Block 0 &nbsp;(early / low-level)</span><span>Block 41 &nbsp;(late / semantic)</span></div>
+    </div>
+    <div class="cm-readout" id="cmReadout"></div>
+
+    <figure class="figure cm-figure">
+      <img src="assets/img/causal_tracing.jpg" alt="Causal tracing: corrupting the prompt turns the subject into something else; restoring an appearance block recovers it, restoring a motion block does not." loading="lazy">
+      <figcaption><b>Causal tracing in action.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>'s clean activation restores the subject; a <span class="hl-mot">motion block</span> does not &mdash; appearance is causally localized to specific blocks.</figcaption>
+    </figure>
   </div>
 </section>
 

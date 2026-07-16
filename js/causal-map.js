@@ -15,15 +15,12 @@
 
   async function init() {
     const data = await getJSON("data/causal_scores.json");
-    const media = await getJSON("data/media.json");
     if (!data) return;
     const blocks = data.blocks.slice().sort((a, b) => a.block - b.block);
-    const causal = media && media.causal_map ? media.causal_map : null;
 
     const barsEl = $("#cmBars");
     const legendEl = $("#cmLegend");
     const readoutEl = $("#cmReadout");
-    const videoEl = $("#cmVideo");
 
     const HALF = 148; // px per half (up = appearance, down = motion)
     const maxAbs = Math.max(0.1, ...blocks.map((b) => Math.abs(b.z_diff)));
@@ -72,43 +69,23 @@
       activeBlock = b.block;
       cols.forEach((c) => c.col.classList.toggle("active", c.col === col));
       renderReadout(b);
-      swapVideo(b.block);
-      const cap = $("#cmVidCap");
-      if (cap) cap.innerHTML = `Restored generation &middot; <b>block ${b.block}</b> reinserted`;
     }
 
     function renderReadout(b) {
       const g = GROUP[b.group];
+      const sgn = (v) => (v > 0 ? "+" : "") + v.toFixed(2);
       readoutEl.innerHTML = `
-        <div class="rt">Block</div>
-        <div class="rblock">${b.block}<span class="grp ${g.cls}">${g.label}</span></div>
-        <div class="cm-metrics">
-          <div class="cm-metric app"><div class="k">Q&#8202;<sub>app</sub></div><div class="v">${b.q_app.toFixed(2)}</div></div>
-          <div class="cm-metric mot"><div class="k">Q&#8202;<sub>mot</sub></div><div class="v">${b.q_mot.toFixed(2)}</div></div>
-          <div class="cm-metric"><div class="k">z&#8202;<sub>diff</sub></div><div class="v">${b.z_diff > 0 ? "+" : ""}${b.z_diff.toFixed(2)}</div></div>
-        </div>
-        <p style="font-size:13.5px;color:var(--ink-2);margin:12px 0 0">${g.desc}</p>`;
-    }
-
-    function swapVideo(block) {
-      if (!causal || !causal.restored_by_layer) return;
-      const entry = causal.restored_by_layer[String(block)];
-      if (!entry) return;
-      if (videoEl.dataset.cur === entry.video) return;
-      videoEl.dataset.cur = entry.video;
-      videoEl.src = entry.video;
-      const p = videoEl.play(); if (p) p.catch(() => {});
+        <span class="ro-block">Block ${b.block}<span class="grp ${g.cls}">${g.label}</span></span>
+        <span class="ro-m app">Q<sub>app</sub> <b>${b.q_app.toFixed(2)}</b></span>
+        <span class="ro-m mot">Q<sub>mot</sub> <b>${b.q_mot.toFixed(2)}</b></span>
+        <span class="ro-m">z<sub>diff</sub> <b>${sgn(b.z_diff)}</b></span>
+        <span class="ro-desc">${g.desc}</span>`;
     }
 
     /* default state: a core block (23 = strongest) */
     const def = blocks.find((b) => b.block === 23) || blocks[0];
     const defCol = cols.find((c) => c.b.block === def.block);
-    if (causal && causal.clean) { videoEl.poster = causal.clean.poster || ""; }
     select(def, defCol.col);
-    if (!causal) {
-      readoutEl.insertAdjacentHTML("beforeend",
-        '<p style="font-size:12.5px;color:var(--muted);margin-top:10px">Restored clips load once media is compressed.</p>');
-    }
   }
 
   document.addEventListener("DOMContentLoaded", init);
