@@ -159,8 +159,9 @@ h2.section-title {
    Interactive causal map
    ============================================================ */
 .cm-wrap { margin-top: 10px; }
-.cm-layout { display: grid; grid-template-columns: 1fr 340px; gap: 28px; align-items: start; }
-@media (max-width: 900px) { .cm-layout { grid-template-columns: 1fr; } }
+.cm-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: start; }
+.cm-layout > div:first-child { min-width: 0; }
+@media (max-width: 900px) { .cm-layout { grid-template-columns: minmax(0, 1fr); } }
 
 .cm-legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 6px 0 18px; align-items: center; }
 .cm-legend .lg { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; color: var(--ink-2); cursor: pointer;
@@ -171,7 +172,7 @@ h2.section-title {
 
 .cm-chart {
   background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius);
-  padding: 18px 16px 10px; box-shadow: var(--shadow-sm); overflow-x: auto;
+  padding: 18px 16px 10px; box-shadow: var(--shadow-sm); overflow-x: auto; min-width: 0;
 }
 .cm-bars { display: flex; align-items: flex-end; gap: 3px; height: 210px; min-width: 620px; }
 .cm-col { flex: 1 1 0; display: flex; flex-direction: column; justify-content: flex-end;

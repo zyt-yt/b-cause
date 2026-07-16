@@ -1,4 +1,8 @@
 scripts/shots/
 scripts/qc/
-scripts/compress.log
+scripts/cand/
+scripts/strips_cur/
+scripts/rec/
+scripts/*.log
 scripts/pw_ready.txt
+scripts/walkthrough.mp4
