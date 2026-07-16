@@ -109,7 +109,7 @@
     if (!box) return;
     comps.forEach((c) => {
       const set = el("div", "cmp-set");
-      set.appendChild(el("h3", null, cap(c.subject)));
+      set.appendChild(el("h3", null, c.label || cap(c.subject)));
       set.appendChild(el("p", "pl", c.prompt_label));
       const row = el("div", "cmp-row");
       METHOD_ORDER.forEach((m) => {

@@ -45,74 +45,9 @@
   ],
   "comparisons": [
     {
-      "subject": "actionfigure_1",
-      "prompt_label": "action figure running",
-      "methods": {
-        "ours": {
-          "video": "assets/videos/cmp_actionfigure_1_ours.mp4",
-          "poster": "assets/posters/cmp_actionfigure_1_ours.jpg"
-        },
-        "customcrafter": {
-          "video": "assets/videos/cmp_actionfigure_1_customcrafter.mp4",
-          "poster": "assets/posters/cmp_actionfigure_1_customcrafter.jpg"
-        },
-        "videobooth": {
-          "video": "assets/videos/cmp_actionfigure_1_videobooth.mp4",
-          "poster": "assets/posters/cmp_actionfigure_1_videobooth.jpg"
-        },
-        "pia": {
-          "video": "assets/videos/cmp_actionfigure_1_pia.mp4",
-          "poster": "assets/posters/cmp_actionfigure_1_pia.jpg"
-        }
-      }
-    },
-    {
-      "subject": "actionfigure_2",
-      "prompt_label": "action figure running",
-      "methods": {
-        "ours": {
-          "video": "assets/videos/cmp_actionfigure_2_ours.mp4",
-          "poster": "assets/posters/cmp_actionfigure_2_ours.jpg"
-        },
-        "customcrafter": {
-          "video": "assets/videos/cmp_actionfigure_2_customcrafter.mp4",
-          "poster": "assets/posters/cmp_actionfigure_2_customcrafter.jpg"
-        },
-        "videobooth": {
-          "video": "assets/videos/cmp_actionfigure_2_videobooth.mp4",
-          "poster": "assets/posters/cmp_actionfigure_2_videobooth.jpg"
-        },
-        "pia": {
-          "video": "assets/videos/cmp_actionfigure_2_pia.mp4",
-          "poster": "assets/posters/cmp_actionfigure_2_pia.jpg"
-        }
-      }
-    },
-    {
-      "subject": "anime_1",
-      "prompt_label": "anime character in motion",
-      "methods": {
-        "ours": {
-          "video": "assets/videos/cmp_anime_1_ours.mp4",
-          "poster": "assets/posters/cmp_anime_1_ours.jpg"
-        },
-        "customcrafter": {
-          "video": "assets/videos/cmp_anime_1_customcrafter.mp4",
-          "poster": "assets/posters/cmp_anime_1_customcrafter.jpg"
-        },
-        "videobooth": {
-          "video": "assets/videos/cmp_anime_1_videobooth.mp4",
-          "poster": "assets/posters/cmp_anime_1_videobooth.jpg"
-        },
-        "pia": {
-          "video": "assets/videos/cmp_anime_1_pia.mp4",
-          "poster": "assets/posters/cmp_anime_1_pia.jpg"
-        }
-      }
-    },
-    {
       "subject": "robot_toy",
-      "prompt_label": "robot toy in motion",
+      "label": "Robot toy",
+      "prompt_label": "same subject \u00b7 each method's own prompt",
       "methods": {
         "ours": {
           "video": "assets/videos/cmp_robot_toy_ours.mp4",
@@ -129,6 +64,63 @@
         "pia": {
           "video": "assets/videos/cmp_robot_toy_pia.mp4",
           "poster": "assets/posters/cmp_robot_toy_pia.jpg"
+        }
+      }
+    },
+    {
+      "subject": "plushie_panda",
+      "label": "Panda plushie",
+      "prompt_label": "same subject \u00b7 each method's own prompt",
+      "methods": {
+        "ours": {
+          "video": "assets/videos/cmp_plushie_panda_ours.mp4",
+          "poster": "assets/posters/cmp_plushie_panda_ours.jpg"
+        },
+        "videobooth": {
+          "video": "assets/videos/cmp_plushie_panda_videobooth.mp4",
+          "poster": "assets/posters/cmp_plushie_panda_videobooth.jpg"
+        },
+        "pia": {
+          "video": "assets/videos/cmp_plushie_panda_pia.mp4",
+          "poster": "assets/posters/cmp_plushie_panda_pia.jpg"
+        }
+      }
+    },
+    {
+      "subject": "dog11",
+      "label": "Corgi",
+      "prompt_label": "same subject \u00b7 each method's own prompt",
+      "methods": {
+        "ours": {
+          "video": "assets/videos/cmp_dog11_ours.mp4",
+          "poster": "assets/posters/cmp_dog11_ours.jpg"
+        },
+        "videobooth": {
+          "video": "assets/videos/cmp_dog11_videobooth.mp4",
+          "poster": "assets/posters/cmp_dog11_videobooth.jpg"
+        },
+        "pia": {
+          "video": "assets/videos/cmp_dog11_pia.mp4",
+          "poster": "assets/posters/cmp_dog11_pia.jpg"
+        }
+      }
+    },
+    {
+      "subject": "duck_toy",
+      "label": "Duck toy",
+      "prompt_label": "same subject \u00b7 each method's own prompt",
+      "methods": {
+        "ours": {
+          "video": "assets/videos/cmp_duck_toy_ours.mp4",
+          "poster": "assets/posters/cmp_duck_toy_ours.jpg"
+        },
+        "videobooth": {
+          "video": "assets/videos/cmp_duck_toy_videobooth.mp4",
+          "poster": "assets/posters/cmp_duck_toy_videobooth.jpg"
+        },
+        "pia": {
+          "video": "assets/videos/cmp_duck_toy_pia.mp4",
+          "poster": "assets/posters/cmp_duck_toy_pia.jpg"
         }
       }
     }
