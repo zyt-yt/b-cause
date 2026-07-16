@@ -41,7 +41,7 @@
 <body>
 <div class="bar">
   <h1>B-CAUSE clip picker</h1>
-  <p>Tap the clips you like. Your selection appears below — copy it and send it back, I'll rebuild the gallery from exactly those.</p>
+  <p>155 clips, every subject. Your 4 earlier picks are already selected (green). Tap more to add — selection shows below; copy it and send it back.</p>
   <div class="selbox">
     <code id="sel">(none selected)</code>
     <button onclick="copySel()">Copy</button>
@@ -51,7 +51,7 @@
 </div>
 <div class="wrap" id="wrap"></div>
 <script>
-const SUBJ_LABEL={animal:"Animals (cat / dog)",plushie:"Plushies",toy:"Toys (monster / robot)","action-figure":"Action figures",anime:"Anime","animal-toy":"Duck toy"};
+const SUBJ_LABEL={animal:"Animals (cat / dog)",plushie:"Plushies",toy:"Toys (monster / robot)","action-figure":"Action figures",anime:"Anime","duck-toy":"Duck toy"};
 const selected=new Set();
 const vobs=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;
   if(e.isIntersecting){if(!v.dataset.on){v.src=v.dataset.src;v.dataset.on=1}v.play().catch(()=>{})}else v.pause();}),{threshold:.25});
@@ -79,11 +79,13 @@ fetch('data/picker.json',{cache:'no-store'}).then(r=>r.json()).then(items=>{
         else{selected.add(it.n);card.classList.add('sel');}
         updateSel();
       });
+      if(it.pre){selected.add(it.n);card.classList.add('sel');}
       vobs.observe(card.querySelector('video'));
       g.appendChild(card);
     });
     wrap.appendChild(g);
   });
+  updateSel();
 });
 </script>
 </body>
