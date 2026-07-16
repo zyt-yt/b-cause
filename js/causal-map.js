@@ -25,7 +25,8 @@
     const readoutEl = $("#cmReadout");
     const videoEl = $("#cmVideo");
 
-    const maxH = 168; // px for Q=1
+    const HALF = 148; // px per half (up = appearance, down = motion)
+    const maxAbs = Math.max(0.1, ...blocks.map((b) => Math.abs(b.z_diff)));
     const hidden = new Set();
 
     /* legend / group filters */
@@ -41,23 +42,25 @@
       legendEl.appendChild(chip);
     });
 
-    /* bars */
+    /* diverging specialization bars: up = appearance-leaning (z_diff>0), down = motion-leaning */
     const cols = [];
     blocks.forEach((b) => {
       const col = el("div", "cm-col");
       col.dataset.block = b.block; col.dataset.group = b.group;
-      const pair = el("div", "pair");
-      const bApp = el("div", "bar app"); bApp.style.height = (b.q_app * maxH) + "px";
-      const bMot = el("div", "bar mot"); bMot.style.height = (b.q_mot * maxH) + "px";
-      pair.appendChild(bApp); pair.appendChild(bMot);
-      const tick = el("div", "tick"); tick.style.background = GROUP[b.group].color;
+      const up = el("div", "cm-half up");
+      const down = el("div", "cm-half down");
+      const bar = el("div", "bar");
+      bar.style.height = (Math.abs(b.z_diff) / maxAbs * HALF) + "px";
+      bar.style.background = GROUP[b.group].color;
+      (b.z_diff >= 0 ? up : down).appendChild(bar);
       const lbl = el("div", "lbl", (b.block % 4 === 0 || b.group === "core") ? b.block : "");
-      col.appendChild(pair); col.appendChild(tick); col.appendChild(lbl);
+      col.appendChild(up); col.appendChild(down); col.appendChild(lbl);
       col.addEventListener("mouseenter", () => select(b, col));
       col.addEventListener("click", () => select(b, col));
       barsEl.appendChild(col);
       cols.push({ b, col });
     });
+    barsEl.appendChild(el("div", "cm-baseline"));
 
     function applyFilter() {
       cols.forEach(({ b, col }) => col.classList.toggle("dim", hidden.has(b.group)));
@@ -70,6 +73,8 @@
       cols.forEach((c) => c.col.classList.toggle("active", c.col === col));
       renderReadout(b);
       swapVideo(b.block);
+      const cap = $("#cmVidCap");
+      if (cap) cap.innerHTML = `Restored generation &middot; <b>block ${b.block}</b> reinserted`;
     }
 
     function renderReadout(b) {
