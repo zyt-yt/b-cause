@@ -205,6 +205,19 @@ h2.section-title {
 .cm-dirlegend .down { color: var(--mot); }
 .cm-dirlegend .nrm { color: var(--muted); font-weight: 500; }
 
+/* scatter */
+.cm-chart-scatter { padding: 14px 14px 8px; overflow-x: auto; }
+.cm-scatter { min-width: 560px; }
+.cm-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.cm-pt { cursor: pointer; transition: opacity .18s; }
+.cm-pt .cm-dot2 { transition: stroke-width .12s; }
+.cm-pt:hover .cm-dot2, .cm-pt.active .cm-dot2 { stroke: var(--ink); stroke-width: 2.5;
+  filter: drop-shadow(0 2px 5px rgba(20,24,34,.35)); }
+.cm-ptlab { fill: #fff; font-family: var(--mono); font-weight: 600; pointer-events: none; }
+.cm-axlab { fill: var(--ink-2); font-family: var(--sans); font-size: 13px; font-weight: 600; }
+.cm-diaglab { fill: var(--muted); font-family: var(--sans); font-size: 11px; }
+.cm-zonelab { fill: var(--core); font-family: var(--sans); font-size: 12.5px; font-weight: 700; opacity: .85; }
+
 /* side panel: restored video + readout */
 .cm-panel { position: sticky; top: 74px; }
 .cm-video { border-radius: var(--radius-sm); overflow: hidden; background: #000; box-shadow: var(--shadow-md);

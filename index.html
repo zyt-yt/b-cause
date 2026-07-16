@@ -88,24 +88,16 @@
     <p class="section-lead">
       For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio and measure how much restoring
       that one block recovers, separately for <span class="hl-app">appearance</span> (30 object subjects) and
-      <span class="hl-mot">motion</span> (30 action subjects). Each bar is a block's <b>specialization</b>
-      &mdash; the z-scored gap between its appearance and motion contribution. Bars rise for
-      appearance-leaning blocks and fall for motion-leaning ones, so the functional split is read at a glance;
-      each bar's <b>dot</b> marks overall restoration strength, so the <span style="color:var(--core);font-weight:600">core</span>
-      integrators (strong on both axes) stand out even where they sit near the center.
+      <span class="hl-mot">motion</span> (30 action subjects). Plotting the two contributions against each other
+      lays the structure bare: a handful of <span style="color:var(--core);font-weight:600">core</span> blocks are
+      strong on <b>both</b> axes (top-right), while the rest specialize toward appearance or motion.
       <b>Hover a block</b> to see its role.
     </p>
 
     <div class="cm-legend" id="cmLegend"></div>
 
-    <div class="cm-dirlegend">
-      <span class="up">&#9650; appearance-leaning</span>
-      <span class="down">&#9660; motion-leaning</span>
-      <span class="nrm">bar = specialization &nbsp;&middot;&nbsp; &#9679; dot = overall strength (core blocks largest)</span>
-    </div>
-    <div class="cm-chart">
-      <div class="cm-bars" id="cmBars"></div>
-      <div class="cm-axis"><span>Block 0 &nbsp;(early / low-level)</span><span>Block 41 &nbsp;(late / semantic)</span></div>
+    <div class="cm-chart cm-chart-scatter">
+      <div id="cmScatter" class="cm-scatter"></div>
     </div>
     <div class="cm-readout" id="cmReadout"></div>
 
