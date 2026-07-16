@@ -65,7 +65,7 @@
   function buildHero(gallery) {
     const grid = $("#heroGrid");
     if (!grid) return;
-    const pick = gallery.slice(0, 8);
+    const pick = gallery.slice(0, 6);
     pick.forEach((g) => {
       const cell = el("div", "cell");
       cell.appendChild(lazyVideo(g.video, g.poster, ""));

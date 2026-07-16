@@ -1,88 +1,46 @@
 {
   "gallery": [
     {
-      "subject": "cat1",
-      "category": "animal",
-      "prompt_label": "cat chasing a red balloon",
-      "video": "assets/videos/gal_00_cat1.mp4",
-      "poster": "assets/posters/gal_00_cat1.jpg"
-    },
-    {
-      "subject": "dog3",
-      "category": "animal",
-      "prompt_label": "dog leaping across a lake",
-      "video": "assets/videos/gal_01_dog3.mp4",
-      "poster": "assets/posters/gal_01_dog3.jpg"
-    },
-    {
       "subject": "plushie_panda",
       "category": "plushie",
       "prompt_label": "panda sledding down a snowy hill",
-      "video": "assets/videos/gal_02_plushie_panda.mp4",
-      "poster": "assets/posters/gal_02_plushie_panda.jpg"
+      "video": "assets/videos/gal_00_plushie_panda.mp4",
+      "poster": "assets/posters/gal_00_plushie_panda.jpg"
     },
     {
-      "subject": "monster_toy",
-      "category": "toy",
-      "prompt_label": "monster dashing through a neon alley",
-      "video": "assets/videos/gal_03_monster_toy.mp4",
-      "poster": "assets/posters/gal_03_monster_toy.jpg"
+      "subject": "dog11",
+      "category": "animal",
+      "prompt_label": "corgi bounding down a boardwalk",
+      "video": "assets/videos/gal_01_dog11.mp4",
+      "poster": "assets/posters/gal_01_dog11.jpg"
     },
     {
       "subject": "robot_toy",
       "category": "toy",
-      "prompt_label": "robot gliding down a ramp",
-      "video": "assets/videos/gal_04_robot_toy.mp4",
-      "poster": "assets/posters/gal_04_robot_toy.jpg"
+      "prompt_label": "robot circling a chessboard",
+      "video": "assets/videos/gal_02_robot_toy.mp4",
+      "poster": "assets/posters/gal_02_robot_toy.jpg"
     },
     {
-      "subject": "anime_1",
-      "category": "anime",
-      "prompt_label": "anime character running through daisies",
-      "video": "assets/videos/gal_05_anime_1.mp4",
-      "poster": "assets/posters/gal_05_anime_1.jpg"
+      "subject": "plushie_bunny",
+      "category": "plushie",
+      "prompt_label": "bunny plushie on a sunlit bed",
+      "video": "assets/videos/gal_03_plushie_bunny.mp4",
+      "poster": "assets/posters/gal_03_plushie_bunny.jpg"
     },
     {
-      "subject": "actionfigure_1",
-      "category": "action-figure",
-      "prompt_label": "action figure on a turntable",
-      "video": "assets/videos/gal_06_actionfigure_1.mp4",
-      "poster": "assets/posters/gal_06_actionfigure_1.jpg"
-    },
-    {
-      "subject": "dog3",
+      "subject": "dog2",
       "category": "animal",
       "prompt_label": "dog running through snow",
-      "video": "assets/videos/gal_07_dog3.mp4",
-      "poster": "assets/posters/gal_07_dog3.jpg"
+      "video": "assets/videos/gal_04_dog2.mp4",
+      "poster": "assets/posters/gal_04_dog2.jpg"
     },
     {
-      "subject": "plushie_panda",
-      "category": "plushie",
-      "prompt_label": "panda soaring with balloons",
-      "video": "assets/videos/gal_08_plushie_panda.mp4",
-      "poster": "assets/posters/gal_08_plushie_panda.jpg"
-    },
-    {
-      "subject": "monster_toy",
+      "subject": "duck_toy",
       "category": "toy",
-      "prompt_label": "monster running with a grin",
-      "video": "assets/videos/gal_09_monster_toy.mp4",
-      "poster": "assets/posters/gal_09_monster_toy.jpg"
-    },
-    {
-      "subject": "cat1",
-      "category": "animal",
-      "prompt_label": "cat chasing a dragonfly",
-      "video": "assets/videos/gal_10_cat1.mp4",
-      "poster": "assets/posters/gal_10_cat1.jpg"
-    },
-    {
-      "subject": "anime_1",
-      "category": "anime",
-      "prompt_label": "anime character on a blossom avenue",
-      "video": "assets/videos/gal_11_anime_1.mp4",
-      "poster": "assets/posters/gal_11_anime_1.jpg"
+      "prompt_label": "duck toy drifting on a pond",
+      "video": "assets/videos/gal_05_duck_toy.mp4",
+      "poster": "assets/posters/gal_05_duck_toy.jpg"
     }
   ],
   "comparisons": [

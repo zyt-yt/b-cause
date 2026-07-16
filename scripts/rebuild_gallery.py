@@ -10,20 +10,14 @@ D = "/data3/lizn/CogVideoX-finetune/DATASETS"
 VID = os.path.join(ROOT, "assets", "videos")
 POS = os.path.join(ROOT, "assets", "posters")
 
-# hero-first order; (subject, category, label, filename)
+# user-curated via picker; (subject, category, label, filename)
 GAL = [
-    ("cat1", "animal", "cat chasing a red balloon", "chasing_balloon_seed1234.mp4"),
-    ("dog3", "animal", "dog leaping across a lake", "jumping_lake_seed7890.mp4"),
     ("plushie_panda", "plushie", "panda sledding down a snowy hill", "sliding_snow_seed7890.mp4"),
-    ("monster_toy", "toy", "monster dashing through a neon alley", "dashing_alley_seed7890.mp4"),
-    ("robot_toy", "toy", "robot gliding down a ramp", "gliding_ramp_seed7890.mp4"),
-    ("anime_1", "anime", "anime character running through daisies", "p31_seed7890.mp4"),
-    ("actionfigure_1", "action-figure", "action figure on a turntable", "spinning_turntable_seed7890.mp4"),
-    ("dog3", "animal", "dog running through snow", "running_snow_seed7890.mp4"),
-    ("plushie_panda", "plushie", "panda soaring with balloons", "soaring_balloon_seed7890.mp4"),
-    ("monster_toy", "toy", "monster running with a grin", "p29_seed7890.mp4"),
-    ("cat1", "animal", "cat chasing a dragonfly", "chasing_dragonfly_seed1234.mp4"),
-    ("anime_1", "anime", "anime character on a blossom avenue", "p36_seed7890.mp4"),
+    ("dog11", "animal", "corgi bounding down a boardwalk", "p16_seed7890.mp4"),
+    ("robot_toy", "toy", "robot circling a chessboard", "circling_chess_seed7890.mp4"),
+    ("plushie_bunny", "plushie", "bunny plushie on a sunlit bed", "p1_seed7890.mp4"),
+    ("dog2", "animal", "dog running through snow", "running_snow_seed7890.mp4"),
+    ("duck_toy", "toy", "duck toy drifting on a pond", "floating_pond_seed7890.mp4"),
 ]
 
 
