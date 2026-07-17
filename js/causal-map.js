@@ -75,40 +75,44 @@
     const motSel = blocks.filter((b) => b.group === "mot").sort((a, b) => a.z_diff - b.z_diff).slice(0, 5);
     const items = [...appSel.map((b) => ({ b })), null, ...motSel.map((b) => ({ b }))];
 
-    const VBW = 760, VBH = 388, LM = 40, RM = 18, PT = 34, PB = 300;
+    const VBW = 760, VBH = 366, LM = 66, RM = 22, PT = 26, PB = 288;
     const plotW = VBW - LM - RM, slots = appSel.length + 1 + motSel.length, step = plotW / slots;
     const xOf = (i) => LM + (i + 0.5) * step;
-    const zs = [...appSel, ...motSel].flatMap((b) => [zA(b.q_app), zM(b.q_mot)]);
-    let zMin = Math.min(...zs) - 0.45, zMax = Math.max(...zs) + 0.45;
-    const Y = (z) => PT + (1 - (z - zMin) / (zMax - zMin)) * (PB - PT);
+    const midY = (PT + PB) / 2, halfH = (PB - PT) / 2;
+    const zMax = Math.max(...[...appSel, ...motSel].map((b) => Math.abs(b.z_diff))) + 0.3;
+    const Y = (z) => midY - z / zMax * halfH;
+    const barW = 26;
 
     const svg = sv("svg", { viewBox: `0 0 ${VBW} ${VBH}`, class: "cm-dumb", preserveAspectRatio: "xMidYMid meet" });
-    // zero line
-    svg.appendChild(sv("line", { x1: LM, y1: Y(0), x2: VBW - RM, y2: Y(0), stroke: "#e2e5ec", "stroke-width": 1.5, "stroke-dasharray": "4 4" }));
-    const z0 = sv("text", { x: LM - 6, y: Y(0) + 4, class: "cm-zlab", "text-anchor": "end" }); z0.textContent = "0"; svg.appendChild(z0);
+    // gridlines + y ticks (the z_app - z_mot scale)
+    [1, 0, -1].forEach((t) => {
+      svg.appendChild(sv("line", { x1: LM, y1: Y(t), x2: VBW - RM, y2: Y(t), stroke: t === 0 ? "#d7dbe3" : "#eef0f4", "stroke-width": t === 0 ? 1.5 : 1, "stroke-dasharray": t === 0 ? "none" : "3 4" }));
+      const tl = sv("text", { x: LM - 10, y: Y(t) + 4, class: "cm-zlab", "text-anchor": "end" }); tl.textContent = t > 0 ? "+" + t : t; svg.appendChild(tl);
+    });
+    // y-axis title + direction cues
+    const yt = sv("text", { x: 18, y: midY, class: "cm-axtitle", "text-anchor": "middle", transform: `rotate(-90 18 ${midY})` }); yt.textContent = "z_app − z_mot"; svg.appendChild(yt);
+    const du = sv("text", { x: LM + 6, y: PT + 14, class: "cm-dircue", fill: GC.app }); du.textContent = "▲ appearance-leaning"; svg.appendChild(du);
+    const dd = sv("text", { x: LM + 6, y: PB - 6, class: "cm-dircue", fill: GC.mot }); dd.textContent = "▼ motion-leaning"; svg.appendChild(dd);
 
     const cols = [];
     let xi = 0;
     items.forEach((it) => {
       if (!it) { xi++; return; }
       const b = it.b, x = xOf(xi); xi++;
-      const za = zA(b.q_app), zm = zM(b.q_mot);
-      const yTop = Y(Math.max(za, zm)), yBot = Y(Math.min(za, zm));
-      const leanCol = za >= zm ? GC.app : GC.mot;
+      const y0 = Y(0), yz = Y(b.z_diff);
+      const up = b.z_diff >= 0;
       const g = sv("g", { class: "cm-dz" });
       g.appendChild(sv("rect", { x: x - step / 2 + 3, y: PT, width: step - 6, height: PB - PT, fill: "transparent", class: "cm-hit" }));
-      g.appendChild(sv("line", { x1: x, y1: yTop + 2, x2: x, y2: yBot - 2, stroke: leanCol, "stroke-width": 2, "stroke-linecap": "round", opacity: 0.45, class: "cm-conn" }));
-      g.appendChild(sv("circle", { cx: x, cy: Y(zm), r: 6, fill: GC.mot, stroke: "#fff", "stroke-width": 2, class: "cm-cd" }));
-      g.appendChild(sv("circle", { cx: x, cy: Y(za), r: 6, fill: GC.app, stroke: "#fff", "stroke-width": 2, class: "cm-cd" }));
-      const bl = sv("text", { x, y: PB + 26, class: "cm-blab", "text-anchor": "middle" }); bl.textContent = b.block; g.appendChild(bl);
+      g.appendChild(sv("rect", { x: x - barW / 2, y: Math.min(y0, yz), width: barW, height: Math.max(3, Math.abs(yz - y0)), rx: 5, fill: GC[b.group], class: "cm-sbar" }));
+      const bl = sv("text", { x, y: up ? y0 + 20 : y0 - 12, class: "cm-blab", "text-anchor": "middle" }); bl.textContent = b.block; g.appendChild(bl);
       g.addEventListener("mouseenter", () => select(b, g));
       g.addEventListener("click", () => select(b, g));
       svg.appendChild(g);
       cols.push({ b, col: g });
     });
     // group captions
-    const ga = sv("text", { x: xOf(2), y: PB + 52, class: "cm-glab", fill: GC.app, "text-anchor": "middle" }); ga.textContent = "▲ Appearance specialists — fine-tuned"; svg.appendChild(ga);
-    const gm = sv("text", { x: xOf(appSel.length + 1 + 2), y: PB + 52, class: "cm-glab", fill: GC.mot, "text-anchor": "middle" }); gm.textContent = "Motion specialists — guidance ▼"; svg.appendChild(gm);
+    const ga = sv("text", { x: xOf(2), y: PB + 40, class: "cm-glab", fill: GC.app, "text-anchor": "middle" }); ga.textContent = "Appearance specialists — fine-tuned"; svg.appendChild(ga);
+    const gm = sv("text", { x: xOf(appSel.length + 1 + 2), y: PB + 40, class: "cm-glab", fill: GC.mot, "text-anchor": "middle" }); gm.textContent = "Motion specialists — guidance"; svg.appendChild(gm);
     barsEl.appendChild(svg);
 
     let activeBlock = null;
