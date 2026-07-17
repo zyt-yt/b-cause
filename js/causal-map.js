@@ -64,29 +64,52 @@
       host.appendChild(s);
     }
 
-    // ---- specialization: show only the clearest specialists (the blocks the method uses) ----
+    // ---- specialization dumbbell: plot z_app & z_mot per block; the GAP = z_app - z_mot ----
+    const mean = (a) => a.reduce((s, x) => s + x, 0) / a.length;
+    const qaAll = blocks.map((b) => b.q_app), qmAll = blocks.map((b) => b.q_mot);
+    const ma = mean(qaAll), mm = mean(qmAll);
+    const sa = Math.sqrt(mean(qaAll.map((x) => (x - ma) ** 2))), sm = Math.sqrt(mean(qmAll.map((x) => (x - mm) ** 2)));
+    const zA = (q) => (q - ma) / sa, zM = (q) => (q - mm) / sm;
+
     const appSel = blocks.filter((b) => b.group === "app").sort((a, b) => b.z_diff - a.z_diff).slice(0, 5);
     const motSel = blocks.filter((b) => b.group === "mot").sort((a, b) => a.z_diff - b.z_diff).slice(0, 5);
-    const sel = [...appSel, null, ...motSel];
-    const selMax = Math.max(...[...appSel, ...motSel].map((b) => Math.abs(b.z_diff)));
+    const items = [...appSel.map((b) => ({ b })), null, ...motSel.map((b) => ({ b }))];
+
+    const VBW = 760, VBH = 388, LM = 40, RM = 18, PT = 34, PB = 300;
+    const plotW = VBW - LM - RM, slots = appSel.length + 1 + motSel.length, step = plotW / slots;
+    const xOf = (i) => LM + (i + 0.5) * step;
+    const zs = [...appSel, ...motSel].flatMap((b) => [zA(b.q_app), zM(b.q_mot)]);
+    let zMin = Math.min(...zs) - 0.45, zMax = Math.max(...zs) + 0.45;
+    const Y = (z) => PT + (1 - (z - zMin) / (zMax - zMin)) * (PB - PT);
+
+    const svg = sv("svg", { viewBox: `0 0 ${VBW} ${VBH}`, class: "cm-dumb", preserveAspectRatio: "xMidYMid meet" });
+    // zero line
+    svg.appendChild(sv("line", { x1: LM, y1: Y(0), x2: VBW - RM, y2: Y(0), stroke: "#e2e5ec", "stroke-width": 1.5, "stroke-dasharray": "4 4" }));
+    const z0 = sv("text", { x: LM - 6, y: Y(0) + 4, class: "cm-zlab", "text-anchor": "end" }); z0.textContent = "0"; svg.appendChild(z0);
+
     const cols = [];
-    sel.forEach((b) => {
-      if (!b) { barsEl.appendChild(el("div", "cm-col cm-spacer")); return; }
-      const col = el("div", "cm-col big");
-      col.dataset.block = b.block;
-      const up = el("div", "cm-half up"), down = el("div", "cm-half down");
-      const bar = el("div", "bar");
-      bar.style.height = (Math.abs(b.z_diff) / selMax * HALF) + "px";
-      bar.style.background = GC[b.group];
-      (b.z_diff >= 0 ? up : down).appendChild(bar);
-      col.appendChild(up); col.appendChild(down);
-      col.appendChild(el("div", "lbl", b.block));
-      col.addEventListener("mouseenter", () => select(b, col));
-      col.addEventListener("click", () => select(b, col));
-      barsEl.appendChild(col);
-      cols.push({ b, col });
+    let xi = 0;
+    items.forEach((it) => {
+      if (!it) { xi++; return; }
+      const b = it.b, x = xOf(xi); xi++;
+      const za = zA(b.q_app), zm = zM(b.q_mot);
+      const yTop = Y(Math.max(za, zm)), yBot = Y(Math.min(za, zm));
+      const leanCol = za >= zm ? GC.app : GC.mot;
+      const g = sv("g", { class: "cm-dz" });
+      g.appendChild(sv("rect", { x: x - step / 2 + 3, y: PT, width: step - 6, height: PB - PT, fill: "transparent", class: "cm-hit" }));
+      g.appendChild(sv("rect", { x: x - 5, y: yTop, width: 10, height: Math.max(2, yBot - yTop), rx: 5, fill: leanCol, opacity: 0.28, class: "cm-conn" }));
+      g.appendChild(sv("circle", { cx: x, cy: Y(zm), r: 7, fill: GC.mot, stroke: "#fff", "stroke-width": 1.6, class: "cm-cd" }));
+      g.appendChild(sv("circle", { cx: x, cy: Y(za), r: 7, fill: GC.app, stroke: "#fff", "stroke-width": 1.6, class: "cm-cd" }));
+      const bl = sv("text", { x, y: PB + 22, class: "cm-blab", "text-anchor": "middle" }); bl.textContent = b.block; g.appendChild(bl);
+      g.addEventListener("mouseenter", () => select(b, g));
+      g.addEventListener("click", () => select(b, g));
+      svg.appendChild(g);
+      cols.push({ b, col: g });
     });
-    barsEl.appendChild(el("div", "cm-baseline"));
+    // group captions
+    const ga = sv("text", { x: xOf(2), y: PB + 52, class: "cm-glab", fill: GC.app, "text-anchor": "middle" }); ga.textContent = "▲ Appearance specialists — fine-tuned"; svg.appendChild(ga);
+    const gm = sv("text", { x: xOf(appSel.length + 1 + 2), y: PB + 52, class: "cm-glab", fill: GC.mot, "text-anchor": "middle" }); gm.textContent = "Motion specialists — guidance ▼"; svg.appendChild(gm);
+    barsEl.appendChild(svg);
 
     let activeBlock = null;
     function select(b, col) {

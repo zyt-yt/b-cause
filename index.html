@@ -105,13 +105,12 @@
     </div>
 
     <div class="cm-dirlegend">
-      <span class="up">&#9650; appearance-leaning</span>
-      <span class="down">&#9660; motion-leaning</span>
-      <span class="nrm">bar height = how strongly a block leans (z<sub>app</sub>&minus;z<sub>mot</sub>)</span>
+      <span><span class="dotleg app"></span> appearance contribution (z<sub>app</sub>)</span>
+      <span><span class="dotleg mot"></span> motion contribution (z<sub>mot</sub>)</span>
+      <span class="nrm">the bar joining them <b>is</b> the specialization &nbsp;z<sub>app</sub>&minus;z<sub>mot</sub></span>
     </div>
     <div class="cm-chart">
       <div class="cm-bars" id="cmBars"></div>
-      <div class="cm-axis"><span style="color:var(--app)">&#9650; Appearance specialists &mdash; fine-tuned for identity</span><span style="color:var(--mot)">Motion specialists &mdash; used for guidance &#9660;</span></div>
     </div>
     <div class="cm-readout" id="cmReadout"></div>
 
