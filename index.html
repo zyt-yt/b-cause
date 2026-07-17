@@ -88,8 +88,9 @@
     <p class="section-lead">
       For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio, measuring how much restoring it
       recovers <span class="hl-app">appearance</span> (30 object subjects) and <span class="hl-mot">motion</span>
-      (30 action subjects). A separate handful of <span style="color:var(--core);font-weight:600">core</span> blocks
-      rank top-5 on <b>both</b> axes; every other block <em>leans</em> one way &mdash; and that lean is what the chart shows.
+      (30 action subjects). Beyond the <span style="color:var(--core);font-weight:600">core</span> blocks above,
+      the rest <em>lean</em> one way &mdash; the chart picks out the clearest: the appearance specialists we
+      <b>fine-tune</b> and the motion specialists we <b>steer with</b>.
       <b>Hover a block</b> to see its role.
     </p>
 
@@ -106,11 +107,11 @@
     <div class="cm-dirlegend">
       <span class="up">&#9650; appearance-leaning</span>
       <span class="down">&#9660; motion-leaning</span>
-      <span class="nrm">bar = how strongly a block leans (z<sub>app</sub>&minus;z<sub>mot</sub>) &nbsp;&middot;&nbsp; <span style="color:var(--core)">&#9670;</span> core</span>
+      <span class="nrm">bar height = how strongly a block leans (z<sub>app</sub>&minus;z<sub>mot</sub>)</span>
     </div>
     <div class="cm-chart">
       <div class="cm-bars" id="cmBars"></div>
-      <div class="cm-axis"><span>Block 0 &nbsp;(early / low-level)</span><span>Block 41 &nbsp;(late / semantic)</span></div>
+      <div class="cm-axis"><span style="color:var(--app)">&#9650; Appearance specialists &mdash; fine-tuned for identity</span><span style="color:var(--mot)">Motion specialists &mdash; used for guidance &#9660;</span></div>
     </div>
     <div class="cm-readout" id="cmReadout"></div>
 

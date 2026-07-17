@@ -212,6 +212,13 @@ h2.section-title {
   .cm-corebox .cb-chart { flex: none; } .cm-mini { margin: 0 auto; } }
 .cm-col .lbl { font-size: 9px; color: var(--muted); margin-top: 5px; font-family: var(--mono);
   line-height: 1; height: 10px; text-align: center; }
+/* curated specialist view */
+.cm-col.big .bar { width: 40%; border-radius: 4px 4px 0 0; }
+.cm-col.big.down .bar, .cm-half.down .bar { }
+.cm-col.big .lbl { font-size: 14px; font-weight: 700; color: var(--ink-2); font-family: var(--mono); height: 16px; margin-top: 9px; }
+.cm-col.big.active .lbl { color: var(--ink); }
+.cm-col.cm-spacer { flex: 0 0 44px; pointer-events: none; cursor: default; }
+.cm-col.cm-spacer::after { display: none; }
 .cm-col.dim .bar { opacity: .12; }
 .cm-col.active .bar { filter: drop-shadow(0 2px 7px rgba(20,24,34,.34)); }
 .cm-col.active .lbl { color: var(--ink); font-weight: 700; }

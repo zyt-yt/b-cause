@@ -64,20 +64,23 @@
       host.appendChild(s);
     }
 
-    // ---- specialization bars (z_diff): up = appearance-leaning, down = motion-leaning ----
+    // ---- specialization: show only the clearest specialists (the blocks the method uses) ----
+    const appSel = blocks.filter((b) => b.group === "app").sort((a, b) => b.z_diff - a.z_diff).slice(0, 5);
+    const motSel = blocks.filter((b) => b.group === "mot").sort((a, b) => a.z_diff - b.z_diff).slice(0, 5);
+    const sel = [...appSel, null, ...motSel];
+    const selMax = Math.max(...[...appSel, ...motSel].map((b) => Math.abs(b.z_diff)));
     const cols = [];
-    blocks.forEach((b) => {
-      const isCore = b.group === "core";
-      const col = el("div", "cm-col" + (isCore ? " core" : ""));
+    sel.forEach((b) => {
+      if (!b) { barsEl.appendChild(el("div", "cm-col cm-spacer")); return; }
+      const col = el("div", "cm-col big");
       col.dataset.block = b.block;
       const up = el("div", "cm-half up"), down = el("div", "cm-half down");
       const bar = el("div", "bar");
-      bar.style.height = (Math.abs(b.z_diff) / maxAbs * HALF) + "px";
+      bar.style.height = (Math.abs(b.z_diff) / selMax * HALF) + "px";
       bar.style.background = GC[b.group];
       (b.z_diff >= 0 ? up : down).appendChild(bar);
-      if (isCore) col.appendChild(el("div", "cm-star", "&#9670;"));
-      const lbl = el("div", "lbl", (b.block % 4 === 0 || isCore) ? b.block : "");
-      col.appendChild(up); col.appendChild(down); col.appendChild(lbl);
+      col.appendChild(up); col.appendChild(down);
+      col.appendChild(el("div", "lbl", b.block));
       col.addEventListener("mouseenter", () => select(b, col));
       col.addEventListener("click", () => select(b, col));
       barsEl.appendChild(col);
