@@ -97,10 +97,10 @@
       const leanCol = za >= zm ? GC.app : GC.mot;
       const g = sv("g", { class: "cm-dz" });
       g.appendChild(sv("rect", { x: x - step / 2 + 3, y: PT, width: step - 6, height: PB - PT, fill: "transparent", class: "cm-hit" }));
-      g.appendChild(sv("rect", { x: x - 5, y: yTop, width: 10, height: Math.max(2, yBot - yTop), rx: 5, fill: leanCol, opacity: 0.28, class: "cm-conn" }));
-      g.appendChild(sv("circle", { cx: x, cy: Y(zm), r: 7, fill: GC.mot, stroke: "#fff", "stroke-width": 1.6, class: "cm-cd" }));
-      g.appendChild(sv("circle", { cx: x, cy: Y(za), r: 7, fill: GC.app, stroke: "#fff", "stroke-width": 1.6, class: "cm-cd" }));
-      const bl = sv("text", { x, y: PB + 22, class: "cm-blab", "text-anchor": "middle" }); bl.textContent = b.block; g.appendChild(bl);
+      g.appendChild(sv("line", { x1: x, y1: yTop + 2, x2: x, y2: yBot - 2, stroke: leanCol, "stroke-width": 2, "stroke-linecap": "round", opacity: 0.45, class: "cm-conn" }));
+      g.appendChild(sv("circle", { cx: x, cy: Y(zm), r: 6, fill: GC.mot, stroke: "#fff", "stroke-width": 2, class: "cm-cd" }));
+      g.appendChild(sv("circle", { cx: x, cy: Y(za), r: 6, fill: GC.app, stroke: "#fff", "stroke-width": 2, class: "cm-cd" }));
+      const bl = sv("text", { x, y: PB + 26, class: "cm-blab", "text-anchor": "middle" }); bl.textContent = b.block; g.appendChild(bl);
       g.addEventListener("mouseenter", () => select(b, g));
       g.addEventListener("click", () => select(b, g));
       svg.appendChild(g);
