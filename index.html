@@ -86,20 +86,27 @@
     <p class="eyebrow">Signature analysis &middot; interactive</p>
     <h2 class="section-title">A causal map of all 42 blocks</h2>
     <p class="section-lead">
-      For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio and measure how much restoring
-      it recovers &mdash; <span class="hl-app">appearance</span> (up bars, 30 object subjects) and
-      <span class="hl-mot">motion</span> (down bars, 30 action subjects). A handful of
-      <span style="color:var(--core);font-weight:600">core</span> blocks (&#9670;) restore <b>both</b> strongly &mdash;
-      the shared backbone &mdash; while the rest lean toward appearance or motion.
+      For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio, measuring how much restoring it
+      recovers <span class="hl-app">appearance</span> (30 object subjects) and <span class="hl-mot">motion</span>
+      (30 action subjects). A separate handful of <span style="color:var(--core);font-weight:600">core</span> blocks
+      rank top-5 on <b>both</b> axes; every other block <em>leans</em> one way &mdash; and that lean is what the chart shows.
       <b>Hover a block</b> to see its role.
     </p>
 
     <div class="cm-legend" id="cmLegend"></div>
 
+    <div class="cm-corebox">
+      <div class="cb-text">
+        <div class="cb-title"><span style="color:var(--core)">&#9670;</span> The 5 core blocks &mdash; 1 &middot; 14 &middot; 19 &middot; 20 &middot; 23</div>
+        <p>Rank top-5 on <b>both</b> axes: the strongest restorers overall and the shared backbone we always train. Averaged across subjects, they beat the rest on appearance <b>and</b> motion &rarr;</p>
+      </div>
+      <div class="cb-chart" id="cmCoreCompare"></div>
+    </div>
+
     <div class="cm-dirlegend">
-      <span class="up">&#9650; appearance restored</span>
-      <span class="down">&#9660; motion restored</span>
-      <span class="nrm"><span style="color:var(--core)">&#9670;</span> core &mdash; strong on both</span>
+      <span class="up">&#9650; appearance-leaning</span>
+      <span class="down">&#9660; motion-leaning</span>
+      <span class="nrm">bar = how strongly a block leans (z<sub>app</sub>&minus;z<sub>mot</sub>) &nbsp;&middot;&nbsp; <span style="color:var(--core)">&#9670;</span> core</span>
     </div>
     <div class="cm-chart">
       <div class="cm-bars" id="cmBars"></div>
@@ -108,8 +115,13 @@
     <div class="cm-readout" id="cmReadout"></div>
 
     <figure class="figure cm-figure">
-      <img src="assets/img/causal_tracing.jpg" alt="Causal tracing: corrupting the prompt turns the subject into something else; restoring an appearance block recovers it, restoring a motion block does not." loading="lazy">
-      <figcaption><b>Causal tracing in action.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>'s clean activation restores the subject; a <span class="hl-mot">motion block</span> does not &mdash; appearance is causally localized to specific blocks.</figcaption>
+      <img src="assets/img/causal_tracing.jpg" alt="Causal tracing: corrupting the prompt turns the subject into something else; restoring an appearance block recovers it, restoring another block does not." loading="lazy">
+      <figcaption><b>Appearance is localized.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>'s clean activation restores the subject; another block does not &mdash; appearance is causally localized to specific blocks.</figcaption>
+    </figure>
+
+    <figure class="figure cm-figure">
+      <img src="assets/img/motion_tracing.jpg" alt="Motion tracing filmstrip: restoring a strong motion block reintroduces the running gait across frames, while a weak block leaves the subject frozen." loading="lazy">
+      <figcaption><b>Motion is localized too &mdash; but you only see it across frames.</b> On an action prompt, restoring a strong <span class="hl-mot">motion block</span> reintroduces the running gait, while a weak block leaves the subject frozen. A single frame can't show this; the motion signal lives in the change between frames.</figcaption>
     </figure>
   </div>
 </section>

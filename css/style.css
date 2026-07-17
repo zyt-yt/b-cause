@@ -176,7 +176,7 @@ h2.section-title {
 }
 .cm-bars { display: flex; align-items: stretch; gap: 3px; min-width: 620px; position: relative; }
 .cm-col { flex: 1 1 0; display: flex; flex-direction: column; cursor: pointer; position: relative; }
-.cm-half { height: 132px; width: 100%; display: flex; justify-content: center; position: relative; z-index: 1; }
+.cm-half { height: 150px; width: 100%; display: flex; justify-content: center; position: relative; z-index: 1; }
 .cm-half.up { align-items: flex-end; }
 .cm-half.down { align-items: flex-start; }
 .cm-half .bar { position: relative; width: 60%; min-height: 1.5px; transition: opacity .15s, filter .15s; }
@@ -192,8 +192,24 @@ h2.section-title {
 .cm-half.up .cm-dot { top: 0; transform: translate(-50%, -50%); }
 .cm-half.down .cm-dot { bottom: 0; transform: translate(-50%, 50%); }
 .cm-col.dim .cm-dot { opacity: .14; }
-.cm-baseline { position: absolute; left: 0; right: 0; top: 132px; height: 0;
+.cm-baseline { position: absolute; left: 0; right: 0; top: 150px; height: 0;
   border-top: 1.5px solid var(--hairline-strong); pointer-events: none; z-index: 1; }
+
+/* core-vs-rest callout */
+.cm-corebox { display: flex; gap: 24px; align-items: center; justify-content: space-between;
+  background: linear-gradient(180deg, #faf8ff, #fbfbfd); border: 1px solid #e8e3f6;
+  border-radius: var(--radius); padding: 16px 22px; margin: 4px 0 22px; box-shadow: var(--shadow-sm); }
+.cm-corebox .cb-text { max-width: 60ch; }
+.cm-corebox .cb-title { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+.cm-corebox .cb-text p { font-size: 14px; color: var(--ink-2); margin: 0; line-height: 1.55; }
+.cm-corebox .cb-chart { flex: 0 0 300px; }
+.cm-mini { width: 300px; height: auto; display: block; }
+.cm-mini-v { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.cm-mini-v.core { fill: var(--core); font-weight: 700; }
+.cm-mini-lab { font-family: var(--sans); font-size: 12px; font-weight: 600; fill: var(--ink-2); }
+.cm-mini-leg { font-family: var(--sans); font-size: 11px; font-weight: 600; }
+@media (max-width: 820px) { .cm-corebox { flex-direction: column; align-items: stretch; }
+  .cm-corebox .cb-chart { flex: none; } .cm-mini { margin: 0 auto; } }
 .cm-col .lbl { font-size: 9px; color: var(--muted); margin-top: 5px; font-family: var(--mono);
   line-height: 1; height: 10px; text-align: center; }
 .cm-col.dim .bar { opacity: .12; }
