@@ -87,17 +87,23 @@
     <h2 class="section-title">A causal map of all 42 blocks</h2>
     <p class="section-lead">
       For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio and measure how much restoring
-      that one block recovers, separately for <span class="hl-app">appearance</span> (30 object subjects) and
-      <span class="hl-mot">motion</span> (30 action subjects). Plotting the two contributions against each other
-      lays the structure bare: a handful of <span style="color:var(--core);font-weight:600">core</span> blocks are
-      strong on <b>both</b> axes (top-right), while the rest specialize toward appearance or motion.
+      it recovers &mdash; <span class="hl-app">appearance</span> (up bars, 30 object subjects) and
+      <span class="hl-mot">motion</span> (down bars, 30 action subjects). A handful of
+      <span style="color:var(--core);font-weight:600">core</span> blocks (&#9670;) restore <b>both</b> strongly &mdash;
+      the shared backbone &mdash; while the rest lean toward appearance or motion.
       <b>Hover a block</b> to see its role.
     </p>
 
     <div class="cm-legend" id="cmLegend"></div>
 
-    <div class="cm-chart cm-chart-scatter">
-      <div id="cmScatter" class="cm-scatter"></div>
+    <div class="cm-dirlegend">
+      <span class="up">&#9650; appearance restored</span>
+      <span class="down">&#9660; motion restored</span>
+      <span class="nrm"><span style="color:var(--core)">&#9670;</span> core &mdash; strong on both</span>
+    </div>
+    <div class="cm-chart">
+      <div class="cm-bars" id="cmBars"></div>
+      <div class="cm-axis"><span>Block 0 &nbsp;(early / low-level)</span><span>Block 41 &nbsp;(late / semantic)</span></div>
     </div>
     <div class="cm-readout" id="cmReadout"></div>
 
