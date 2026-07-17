@@ -64,55 +64,48 @@
       host.appendChild(s);
     }
 
-    // ---- specialization dumbbell: plot z_app & z_mot per block; the GAP = z_app - z_mot ----
-    const mean = (a) => a.reduce((s, x) => s + x, 0) / a.length;
-    const qaAll = blocks.map((b) => b.q_app), qmAll = blocks.map((b) => b.q_mot);
-    const ma = mean(qaAll), mm = mean(qmAll);
-    const sa = Math.sqrt(mean(qaAll.map((x) => (x - ma) ** 2))), sm = Math.sqrt(mean(qmAll.map((x) => (x - mm) ** 2)));
-    const zA = (q) => (q - ma) / sa, zM = (q) => (q - mm) / sm;
+    // ---- specialization slope chart: appearance rank vs motion rank ----
+    const byApp = blocks.slice().sort((a, b) => b.q_app - a.q_app);
+    const byMot = blocks.slice().sort((a, b) => b.q_mot - a.q_mot);
+    const appRank = {}, motRank = {};
+    byApp.forEach((b, i) => (appRank[b.block] = i + 1));
+    byMot.forEach((b, i) => (motRank[b.block] = i + 1));
+    const N = blocks.length;
 
-    const appSel = blocks.filter((b) => b.group === "app").sort((a, b) => b.z_diff - a.z_diff).slice(0, 5);
-    const motSel = blocks.filter((b) => b.group === "mot").sort((a, b) => a.z_diff - b.z_diff).slice(0, 5);
-    const items = [...appSel.map((b) => ({ b })), null, ...motSel.map((b) => ({ b }))];
+    const appSel = blocks.filter((b) => b.group === "app").sort((a, b) => b.z_diff - a.z_diff).slice(0, 2);
+    const motSel = blocks.filter((b) => b.group === "mot").sort((a, b) => a.z_diff - b.z_diff).slice(0, 2);
+    const picks = [...appSel.map((b) => ({ b, grp: "app" })), ...motSel.map((b) => ({ b, grp: "mot" }))];
 
-    const VBW = 760, VBH = 366, LM = 66, RM = 22, PT = 26, PB = 288;
-    const plotW = VBW - LM - RM, slots = appSel.length + 1 + motSel.length, step = plotW / slots;
-    const xOf = (i) => LM + (i + 0.5) * step;
-    const midY = (PT + PB) / 2, halfH = (PB - PT) / 2;
-    const zMax = Math.max(...[...appSel, ...motSel].map((b) => Math.abs(b.z_diff))) + 0.3;
-    const Y = (z) => midY - z / zMax * halfH;
-    const barW = 26;
-
+    const VBW = 760, VBH = 360, topY = 58, botY = 300, leftX = 232, rightX = 528;
+    const yR = (r) => topY + (r - 1) / (N - 1) * (botY - topY);
     const svg = sv("svg", { viewBox: `0 0 ${VBW} ${VBH}`, class: "cm-dumb", preserveAspectRatio: "xMidYMid meet" });
-    // gridlines + y ticks (the z_app - z_mot scale)
-    [1, 0, -1].forEach((t) => {
-      svg.appendChild(sv("line", { x1: LM, y1: Y(t), x2: VBW - RM, y2: Y(t), stroke: t === 0 ? "#d7dbe3" : "#eef0f4", "stroke-width": t === 0 ? 1.5 : 1, "stroke-dasharray": t === 0 ? "none" : "3 4" }));
-      const tl = sv("text", { x: LM - 10, y: Y(t) + 4, class: "cm-zlab", "text-anchor": "end" }); tl.textContent = t > 0 ? "+" + t : t; svg.appendChild(tl);
+
+    // axes
+    [leftX, rightX].forEach((x) => svg.appendChild(sv("line", { x1: x, y1: topY, x2: x, y2: botY, stroke: "#dfe2e9", "stroke-width": 1.5 })));
+    // top/bottom rank markers
+    [[leftX, "end", -14], [rightX, "start", 14]].forEach(([x, anc, dx]) => {
+      const t1 = sv("text", { x: x + dx, y: topY - 12, class: "cm-zlab", "text-anchor": "middle" }); t1.textContent = "rank 1"; svg.appendChild(t1);
+      const t2 = sv("text", { x: x + dx, y: botY + 18, class: "cm-zlab", "text-anchor": "middle" }); t2.textContent = N; svg.appendChild(t2);
     });
-    // y-axis title + direction cues
-    const yt = sv("text", { x: 18, y: midY, class: "cm-axtitle", "text-anchor": "middle", transform: `rotate(-90 18 ${midY})` }); yt.textContent = "z_app − z_mot"; svg.appendChild(yt);
-    const du = sv("text", { x: LM + 6, y: PT + 14, class: "cm-dircue", fill: GC.app }); du.textContent = "▲ appearance-leaning"; svg.appendChild(du);
-    const dd = sv("text", { x: LM + 6, y: PB - 6, class: "cm-dircue", fill: GC.mot }); dd.textContent = "▼ motion-leaning"; svg.appendChild(dd);
+    const ua = sv("text", { x: (leftX + rightX) / 2, y: topY - 12, class: "cm-dircue", fill: "#9096a4", "text-anchor": "middle" }); ua.textContent = "▲ stronger"; svg.appendChild(ua);
+    // axis titles
+    const la = sv("text", { x: leftX, y: botY + 44, class: "cm-glab", fill: GC.app, "text-anchor": "middle" }); la.textContent = "Appearance rank"; svg.appendChild(la);
+    const lm = sv("text", { x: rightX, y: botY + 44, class: "cm-glab", fill: GC.mot, "text-anchor": "middle" }); lm.textContent = "Motion rank"; svg.appendChild(lm);
 
     const cols = [];
-    let xi = 0;
-    items.forEach((it) => {
-      if (!it) { xi++; return; }
-      const b = it.b, x = xOf(xi); xi++;
-      const y0 = Y(0), yz = Y(b.z_diff);
-      const up = b.z_diff >= 0;
+    picks.forEach((p) => {
+      const ya = yR(appRank[p.b.block]), ym = yR(motRank[p.b.block]);
+      const col = GC[p.grp];
       const g = sv("g", { class: "cm-dz" });
-      g.appendChild(sv("rect", { x: x - step / 2 + 3, y: PT, width: step - 6, height: PB - PT, fill: "transparent", class: "cm-hit" }));
-      g.appendChild(sv("rect", { x: x - barW / 2, y: Math.min(y0, yz), width: barW, height: Math.max(3, Math.abs(yz - y0)), rx: 5, fill: GC[b.group], class: "cm-sbar" }));
-      const bl = sv("text", { x, y: up ? y0 + 20 : y0 - 12, class: "cm-blab", "text-anchor": "middle" }); bl.textContent = b.block; g.appendChild(bl);
-      g.addEventListener("mouseenter", () => select(b, g));
-      g.addEventListener("click", () => select(b, g));
+      g.appendChild(sv("line", { x1: leftX, y1: ya, x2: rightX, y2: ym, stroke: col, "stroke-width": 3, "stroke-linecap": "round", class: "cm-slope" }));
+      g.appendChild(sv("circle", { cx: leftX, cy: ya, r: 6, fill: col, stroke: "#fff", "stroke-width": 2, class: "cm-sd" }));
+      g.appendChild(sv("circle", { cx: rightX, cy: ym, r: 6, fill: col, stroke: "#fff", "stroke-width": 2, class: "cm-sd" }));
+      const l1 = sv("text", { x: leftX - 16, y: ya + 4, class: "cm-blab", "text-anchor": "end" }); l1.textContent = "block " + p.b.block; g.appendChild(l1);
+      g.addEventListener("mouseenter", () => select(p.b, g));
+      g.addEventListener("click", () => select(p.b, g));
       svg.appendChild(g);
-      cols.push({ b, col: g });
+      cols.push({ b: p.b, col: g });
     });
-    // group captions
-    const ga = sv("text", { x: xOf(2), y: PB + 40, class: "cm-glab", fill: GC.app, "text-anchor": "middle" }); ga.textContent = "Appearance specialists — fine-tuned"; svg.appendChild(ga);
-    const gm = sv("text", { x: xOf(appSel.length + 1 + 2), y: PB + 40, class: "cm-glab", fill: GC.mot, "text-anchor": "middle" }); gm.textContent = "Motion specialists — guidance"; svg.appendChild(gm);
     barsEl.appendChild(svg);
 
     let activeBlock = null;
