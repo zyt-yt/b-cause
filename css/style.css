@@ -407,3 +407,35 @@ footer a { font-weight: 500; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* ---------- web-native pipeline diagram ---------- */
+.pipeline { display: flex; align-items: stretch; gap: 8px; margin: 8px 0 0; }
+@media (max-width: 900px) { .pipeline { flex-direction: column; } .pipeline .pl-arrow { transform: rotate(90deg); align-self: center; } }
+.pl-stage { flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius);
+  padding: 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+.pl-badge { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.pl-n { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; }
+.pl-arrow { align-self: center; color: var(--muted); font-size: 22px; flex: 0 0 auto; }
+.pl-cap { font-size: 12.5px; color: var(--ink-2); margin: auto 0 0; padding-top: 14px; line-height: 1.5; }
+.pl-trace { display: flex; align-items: center; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.pl-trace figure { margin: 0; text-align: center; }
+.pl-trace img { width: 76px; height: 47px; object-fit: cover; border-radius: 6px; border: 1px solid var(--hairline); display: block; }
+.pl-trace figure.hl img { border: 2px solid var(--app); }
+.pl-trace figcaption { font-size: 10px; color: var(--muted); margin-top: 4px; }
+.pl-trace figcaption.bad { color: var(--mot); }
+.pl-to { color: var(--muted); font-size: 13px; }
+.pl-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 0 auto; max-width: 196px; width: 100%; }
+.pl-cell { aspect-ratio: 1; border-radius: 3px; }
+.pl-maplegend { display: flex; flex-wrap: wrap; gap: 6px 12px; justify-content: center; margin-top: 14px; font-size: 11px; color: var(--ink-2); }
+.pl-maplegend span { display: inline-flex; align-items: center; gap: 5px; }
+.pl-maplegend i { width: 9px; height: 9px; border-radius: 2px; }
+.pl-use { display: flex; flex-direction: column; gap: 3px; }
+.pl-userow { display: flex; align-items: center; gap: 9px; }
+.pl-tag { font-size: 9.5px; font-weight: 700; letter-spacing: .04em; padding: 4px 6px; border-radius: 5px; flex: 0 0 auto; width: 42px; text-align: center; }
+.pl-tag.train { color: var(--app); background: var(--app-soft); }
+.pl-tag.infer { color: var(--mot); background: var(--mot-soft); }
+.pl-brow { display: flex; gap: 3px; flex: 1; }
+.pl-bcell { flex: 1; height: 24px; border-radius: 3px; background: #edeff4; transition: transform .12s; }
+.pl-bcell.lit { box-shadow: 0 1px 3px rgba(20,24,34,.2); }
+.pl-usecap { font-size: 11px; color: var(--muted); margin: 1px 0 9px 51px; }

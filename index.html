@@ -120,10 +120,6 @@
       <figcaption><b>Appearance is localized.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>'s clean activation restores the subject; another block does not &mdash; appearance is causally localized to specific blocks.</figcaption>
     </figure>
 
-    <figure class="figure cm-figure">
-      <img src="assets/img/motion_tracing.jpg" alt="Motion tracing filmstrip: restoring a strong motion block reintroduces the running gait across frames, while a weak block leaves the subject frozen." loading="lazy">
-      <figcaption><b>Motion is localized too &mdash; but you only see it across frames.</b> On an action prompt, restoring a strong <span class="hl-mot">motion block</span> reintroduces the running gait, while a weak block leaves the subject frozen. A single frame can't show this; the motion signal lives in the change between frames.</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -136,10 +132,7 @@
       The map hands us four block groups. We use them to split customization into a training phase that touches
       only identity and an inference phase that restores dynamics &mdash; never fighting each other.
     </p>
-    <figure class="figure">
-      <img src="assets/img/pipeline-1.png" alt="B-CAUSE full pipeline: causal tracing, contribution analysis, and appearance/motion block utilization" loading="lazy">
-      <figcaption><b>(A)</b> Block-wise causal tracing &nbsp;&middot;&nbsp; <b>(B)</b> Per-layer appearance / motion contribution &nbsp;&middot;&nbsp; <b>(C)</b> Training on appearance blocks, inference-time guidance from motion blocks.</figcaption>
-    </figure>
+    <div class="pipeline" id="pipeline"></div>
     <div class="steps">
       <div class="step">
         <div class="n">PHASE 1 &middot; TRAIN</div>
@@ -210,5 +203,6 @@
 
 <script src="js/main.js"></script>
 <script src="js/causal-map.js"></script>
+<script src="js/pipeline.js"></script>
 </body>
 </html>
