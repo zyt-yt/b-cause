@@ -456,17 +456,8 @@ footer a { font-weight: 500; }
 .rec-step.app .rs-lab b { color: var(--app); }
 .rs-arr { font-size: 20px; color: var(--hairline-strong); }
 .rec-step.app .rs-arr { color: var(--app); }
-
-/* ---------- tracing: scoring tags ---------- */
+/* ---------- tracing: scoring note ---------- */
 .scoring { margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--hairline); }
-.sc-lead { font-size: 14.5px; color: var(--ink-2); margin: 0 0 16px; max-width: 78ch; }
-.sc-lead b { color: var(--ink); }
-.sc-rows { display: flex; flex-direction: column; gap: 9px; }
-.sc-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.sc-grp { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; width: 92px; flex: 0 0 auto; }
-.sc-grp.app { color: var(--app); }
-.sc-grp.mot { color: var(--mot); }
-.sc-grp.shared { color: var(--muted); }
-.sc-tag { font-size: 13px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--hairline); border-radius: 100px; padding: 5px 14px; }
-.sc-models { margin: 18px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .02em; }
-@media (max-width: 560px) { .sc-grp { width: auto; } }
+.scoring2 { font-size: 15px; color: var(--ink-2); line-height: 1.62; margin: 0; max-width: 84ch; }
+.scoring2 b { color: var(--ink); }
+.sc-models { margin: 13px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .03em; }
