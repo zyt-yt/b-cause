@@ -88,29 +88,38 @@
     <p class="section-lead">
       For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio, measuring how much restoring it
       recovers <span class="hl-app">appearance</span> (30 object subjects) and <span class="hl-mot">motion</span>
-      (30 action subjects). Beyond the <span style="color:var(--core);font-weight:600">core</span> blocks above,
-      the rest <em>lean</em> one way &mdash; the chart picks out the clearest: the appearance specialists we
-      <b>fine-tune</b> and the motion specialists we <b>steer with</b>.
-      <b>Hover a block</b> to see its role.
+      (30 action subjects). Those two scores sort every block into one of <b>four roles</b> &mdash; and that 2&times;2
+      is the whole method. <b>Hover a row</b> for details.
     </p>
 
     <div class="cm-legend" id="cmLegend"></div>
 
-    <div class="cm-corebox">
-      <div class="cb-text">
-        <div class="cb-title"><span style="color:var(--core)">&#9670;</span> The 5 core blocks &mdash; 1 &middot; 14 &middot; 19 &middot; 20 &middot; 23</div>
-        <p>Rank top-5 on <b>both</b> axes: the strongest restorers overall and the shared backbone we always train. Averaged across subjects, they beat the rest on appearance <b>and</b> motion &rarr;</p>
-      </div>
-      <div class="cb-chart" id="cmCoreCompare"></div>
-    </div>
-
     <div class="cm-dirlegend">
-      <span class="nrm">strong on one axis <b>+</b> weak on the other &nbsp;&rarr;&nbsp; that&rsquo;s the block&rsquo;s specialty</span>
+      <span class="nrm">strong on <b>both</b> &rarr; core (trained) &nbsp;&middot;&nbsp; strong on <b>one</b> &rarr; specialist &nbsp;&middot;&nbsp; weak on both &rarr; excluded</span>
     </div>
     <div class="cm-chart">
       <div class="cm-bars" id="cmBars"></div>
     </div>
     <div class="cm-readout" id="cmReadout"></div>
+
+    <div class="cm-scoring">
+      <div class="cs-head"><b>Where the scores come from.</b> &ldquo;Strong&rdquo; and &ldquo;weak&rdquo; aren&rsquo;t one number &mdash; each restored clip is scored by a <b>weighted panel of 7 complementary metrics</b>, comparing <em>every frame</em> of the clean and restored videos.</div>
+      <div class="cs-groups">
+        <div class="cs-col app">
+          <div class="cs-lab">Appearance</div>
+          <ul><li>Subject consistency</li><li>Attribute hypercolumn</li><li>Perceptual fidelity</li></ul>
+        </div>
+        <div class="cs-col mot">
+          <div class="cs-lab">Motion</div>
+          <ul><li>Optical-flow similarity</li><li>Semantic motion</li></ul>
+        </div>
+        <div class="cs-col shared">
+          <div class="cs-lab">Shared</div>
+          <ul><li>Temporal consistency</li><li>Text alignment</li></ul>
+        </div>
+      </div>
+      <div class="cs-models">DINOv2 &middot; LPIPS &middot; OpenCLIP &middot; RAFT &middot; Grounded-SAM&nbsp;2</div>
+    </div>
 
     <figure class="figure cm-figure">
       <img src="assets/img/causal_tracing.jpg" alt="Causal tracing: corrupting the prompt turns the subject into something else; restoring an appearance block recovers it, restoring another block does not." loading="lazy">
