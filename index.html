@@ -93,8 +93,34 @@
     </p>
 
     <figure class="figure cm-figure">
-      <img src="assets/img/causal_tracing.jpg" alt="Causal tracing: corrupting the prompt turns the subject into something else; restoring an appearance block recovers it, restoring another block does not." loading="lazy">
-      <figcaption><b>Appearance is localized.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>'s clean activation restores the subject; another block does not &mdash; appearance is causally localized to specific blocks.</figcaption>
+      <div class="tmap-scroll">
+        <div class="tmap">
+          <div></div>
+          <div class="th clean">Clean</div>
+          <div class="th corrupt">Corrupted</div>
+          <div class="th app">+ appearance block</div>
+          <div class="th other">+ other block</div>
+
+          <div class="tr-label">a cat</div>
+          <div class="tr-cell"><img src="assets/img/tr/cat_clean.jpg" alt="clean cat" loading="lazy"></div>
+          <div class="tr-cell"><img src="assets/img/tr/cat_corrupt.jpg" alt="corrupted" loading="lazy"></div>
+          <div class="tr-cell app"><img src="assets/img/tr/cat_app.jpg" alt="restored cat" loading="lazy"></div>
+          <div class="tr-cell"><img src="assets/img/tr/cat_other.jpg" alt="other block" loading="lazy"></div>
+
+          <div class="tr-label">a bicycle</div>
+          <div class="tr-cell"><img src="assets/img/tr/bike_clean.jpg" alt="clean bicycle" loading="lazy"></div>
+          <div class="tr-cell"><img src="assets/img/tr/bike_corrupt.jpg" alt="corrupted" loading="lazy"></div>
+          <div class="tr-cell app"><img src="assets/img/tr/bike_app.jpg" alt="restored bicycle" loading="lazy"></div>
+          <div class="tr-cell"><img src="assets/img/tr/bike_other.jpg" alt="other block" loading="lazy"></div>
+
+          <div class="tr-label">a guitar</div>
+          <div class="tr-cell"><img src="assets/img/tr/guitar_clean.jpg" alt="clean guitar" loading="lazy"></div>
+          <div class="tr-cell"><img src="assets/img/tr/guitar_corrupt.jpg" alt="corrupted" loading="lazy"></div>
+          <div class="tr-cell app"><img src="assets/img/tr/guitar_app.jpg" alt="restored guitar" loading="lazy"></div>
+          <div class="tr-cell"><img src="assets/img/tr/guitar_other.jpg" alt="other block" loading="lazy"></div>
+        </div>
+      </div>
+      <figcaption><b>Appearance is localized.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>&rsquo;s clean activation restores the subject; another block does not.</figcaption>
     </figure>
 
     <div class="cm-scoring">

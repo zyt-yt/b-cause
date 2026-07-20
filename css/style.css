@@ -439,3 +439,17 @@ footer a { font-weight: 500; }
 .pl-bcell { flex: 1; height: 24px; border-radius: 3px; background: #edeff4; transition: transform .12s; }
 .pl-bcell.lit { box-shadow: 0 1px 3px rgba(20,24,34,.2); }
 .pl-usecap { font-size: 11px; color: var(--muted); margin: 1px 0 9px 51px; }
+
+/* ---------- web-native tracing montage grid ---------- */
+.tmap-scroll { overflow-x: auto; }
+.tmap { display: grid; grid-template-columns: 66px repeat(4, 1fr); gap: 8px; align-items: center; min-width: 560px; }
+.tmap .th { font-size: 12.5px; font-weight: 700; text-align: center; padding: 8px 6px; border-radius: 9px; letter-spacing: .01em; }
+.tmap .th.clean { color: var(--ink-2); background: var(--surface-sunk); }
+.tmap .th.corrupt { color: #cf4747; background: #fbeaea; }
+.tmap .th.app { color: var(--app); background: var(--app-soft); }
+.tmap .th.other { color: var(--muted); background: var(--surface-sunk); }
+.tr-label { font-family: var(--serif); font-size: 15px; font-weight: 500; color: var(--ink-2); text-align: right; padding-right: 6px; }
+.tr-cell { border-radius: 9px; overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 16 / 10; background: var(--surface-sunk); }
+.tr-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tr-cell.app { box-shadow: 0 0 0 2px var(--app); }
+.cm-figure .tmap-scroll + figcaption, .cm-figure figcaption { text-align: left; }
