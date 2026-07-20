@@ -20,24 +20,8 @@
     const data = await getJSON("data/causal_scores.json");
     if (!data) return;
     const blocks = data.blocks.slice().sort((a, b) => a.block - b.block);
-    const legendEl = $("#cmLegend"), readoutEl = $("#cmReadout"), barsEl = $("#cmBars");
+    const barsEl = $("#cmBars");
     if (!barsEl) return;
-
-    const HALF = 150;
-    const maxAbs = Math.max(0.1, ...blocks.map((b) => Math.abs(b.z_diff)));
-    const hidden = new Set();
-
-    Object.keys(GROUP).forEach((g) => {
-      const n = data.groups[g] ? data.groups[g].blocks.length : 0;
-      const chip = el("span", "lg", `<span class="sw" style="background:${GC[g]}"></span>${GROUP[g].label} <span style="color:var(--muted)">(${n})</span>`);
-      chip.dataset.g = g;
-      chip.addEventListener("click", () => {
-        if (hidden.has(g)) hidden.delete(g); else hidden.add(g);
-        chip.classList.toggle("off", hidden.has(g));
-        cols.forEach(({ b, col }) => col.classList.toggle("dim", hidden.has(b.group)));
-      });
-      legendEl.appendChild(chip);
-    });
 
     // ---- four-role scorecard: the 2x2 of strong/weak on appearance x motion ----
     // idealized levels (keep the qualitative truth, clean numbers)
@@ -70,17 +54,9 @@
       cols.push({ c, col: row });
     });
 
-    let activeCat = null;
     function select(c, col) {
-      if (activeCat === c.key) return;
-      activeCat = c.key;
       cols.forEach((x) => x.col.classList.toggle("active", x.col === col));
-      const gp = GROUP[c.key], n = data.groups[c.key] ? data.groups[c.key].blocks.length : 0;
-      readoutEl.innerHTML = `
-        <span class="ro-block">${c.label}<span class="grp ${gp.cls}">${n} blocks</span></span>
-        <span class="ro-desc">${gp.desc}</span>`;
     }
-    select(CATS[0], cols[0].col);
   }
 
   document.addEventListener("DOMContentLoaded", init);

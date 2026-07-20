@@ -83,24 +83,18 @@
 <!-- CAUSAL MAP (signature interactive) -->
 <section id="causal-map" class="alt">
   <div class="wrap cm-wrap">
-    <p class="eyebrow">Signature analysis &middot; interactive</p>
+    <p class="eyebrow">The block taxonomy</p>
     <h2 class="section-title">A causal map of all 42 blocks</h2>
     <p class="section-lead">
       For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio, measuring how much restoring it
       recovers <span class="hl-app">appearance</span> (30 object subjects) and <span class="hl-mot">motion</span>
       (30 action subjects). Those two scores sort every block into one of <b>four roles</b> &mdash; and that 2&times;2
-      is the whole method. <b>Hover a row</b> for details.
+      is the whole method.
     </p>
 
-    <div class="cm-legend" id="cmLegend"></div>
-
-    <div class="cm-dirlegend">
-      <span class="nrm">strong on <b>both</b> &rarr; core (trained) &nbsp;&middot;&nbsp; strong on <b>one</b> &rarr; specialist &nbsp;&middot;&nbsp; weak on both &rarr; excluded</span>
-    </div>
     <div class="cm-chart">
       <div class="cm-bars" id="cmBars"></div>
     </div>
-    <div class="cm-readout" id="cmReadout"></div>
 
     <div class="cm-scoring">
       <div class="cs-head"><b>Where the scores come from.</b> &ldquo;Strong&rdquo; and &ldquo;weak&rdquo; aren&rsquo;t one number &mdash; each restored clip is scored by a <b>weighted panel of 7 complementary metrics</b>, comparing <em>every frame</em> of the clean and restored videos.</div>
