@@ -64,50 +64,35 @@
       host.appendChild(s);
     }
 
-    // ---- specialization slope chart (idealized concept figure) ----
+    // ---- specialization scorecards: strong on one axis + weak on the other -> its label ----
     const appSel = blocks.filter((b) => b.group === "app").sort((a, b) => b.z_diff - a.z_diff).slice(0, 2);
     const motSel = blocks.filter((b) => b.group === "mot").sort((a, b) => a.z_diff - b.z_diff).slice(0, 2);
-    // idealized positions (0 = weak/bottom, 1 = strong/top): keep the qualitative truth, clean the layout
-    const POS = { app: [[0.90, 0.40], [0.72, 0.24]], mot: [[0.16, 0.88], [0.32, 0.64]] };
-    const picks = [];
-    appSel.forEach((b, i) => picks.push({ b, grp: "app", yL: POS.app[i][0], yR: POS.app[i][1] }));
-    motSel.forEach((b, i) => picks.push({ b, grp: "mot", yL: POS.mot[i][0], yR: POS.mot[i][1] }));
-
-    const VBW = 760, VBH = 372, topY = 74, botY = 300, leftX = 258, rightX = 502;
-    const yP = (f) => botY - f * (botY - topY);
-    const dx = (rightX - leftX) * 0.42;
-    const svg = sv("svg", { viewBox: `0 0 ${VBW} ${VBH}`, class: "cm-dumb", preserveAspectRatio: "xMidYMid meet" });
-    const defs = sv("defs", {}); svg.appendChild(defs);
-
-    // faint column guides
-    [leftX, rightX].forEach((x) => svg.appendChild(sv("line", { x1: x, y1: topY - 12, x2: x, y2: botY + 12, stroke: "#eceef3", "stroke-width": 1.5 })));
-    // column headers
-    const ha = sv("text", { x: leftX, y: topY - 26, class: "cm-glab", fill: GC.app, "text-anchor": "middle" }); ha.textContent = "Appearance"; svg.appendChild(ha);
-    const hm = sv("text", { x: rightX, y: topY - 26, class: "cm-glab", fill: GC.mot, "text-anchor": "middle" }); hm.textContent = "Motion"; svg.appendChild(hm);
-    const sTop = sv("text", { x: 58, y: topY + 3, class: "cm-zlab", "text-anchor": "start" }); sTop.textContent = "stronger ▲"; svg.appendChild(sTop);
-    const sBot = sv("text", { x: 58, y: botY + 3, class: "cm-zlab", "text-anchor": "start" }); sBot.textContent = "weaker ▽"; svg.appendChild(sBot);
+    // idealized levels (keep the qualitative truth, clean numbers): [appearance, motion]
+    const LV = { app: [[0.93, 0.30], [0.80, 0.22]], mot: [[0.22, 0.90], [0.28, 0.74]] };
+    const rows = [];
+    appSel.forEach((b, i) => rows.push({ b, grp: "app", app: LV.app[i][0], mot: LV.app[i][1] }));
+    motSel.forEach((b, i) => rows.push({ b, grp: "mot", app: LV.mot[i][0], mot: LV.mot[i][1] }));
 
     const cols = [];
-    picks.forEach((p, i) => {
-      const col = GC[p.grp], ya = yP(p.yL), ym = yP(p.yR);
-      const grad = sv("linearGradient", { id: `sg${i}`, gradientUnits: "userSpaceOnUse", x1: leftX, y1: ya, x2: rightX, y2: ym });
-      grad.appendChild(sv("stop", { offset: "0%", "stop-color": col, "stop-opacity": 0.95 }));
-      grad.appendChild(sv("stop", { offset: "100%", "stop-color": col, "stop-opacity": 0.5 }));
-      defs.appendChild(grad);
-      const g = sv("g", { class: "cm-dz" });
-      const d = `M ${leftX} ${ya} C ${leftX + dx} ${ya}, ${rightX - dx} ${ym}, ${rightX} ${ym}`;
-      g.appendChild(sv("path", { d, fill: "none", stroke: `url(#sg${i})`, "stroke-width": 3.5, "stroke-linecap": "round", class: "cm-slope" }));
-      [[leftX, ya], [rightX, ym]].forEach(([cx, cy]) => {
-        g.appendChild(sv("circle", { cx, cy, r: 11, fill: col, opacity: 0.16, class: "cm-halo" }));
-        g.appendChild(sv("circle", { cx, cy, r: 6.5, fill: col, stroke: "#fff", "stroke-width": 2.2, class: "cm-sd" }));
-      });
-      const l1 = sv("text", { x: leftX - 18, y: ya + 4, class: "cm-blab", "text-anchor": "end" }); l1.textContent = "block " + p.b.block; g.appendChild(l1);
-      g.addEventListener("mouseenter", () => select(p.b, g));
-      g.addEventListener("click", () => select(p.b, g));
-      svg.appendChild(g);
-      cols.push({ b: p.b, col: g });
+    rows.forEach((r, idx) => {
+      const strong = (v) => v >= 0.55;
+      const row = el("div", "spec-row" + (r.grp === "mot" ? " mot" : "") + (idx === appSel.length ? " grp-start" : ""));
+      const meter = (lab, val, cls) => `
+        <div class="sr-m">
+          <span class="sr-mlab">${lab}</span>
+          <div class="sr-track"><div class="sr-fill ${cls}" style="width:${Math.round(val * 100)}%"></div></div>
+          <span class="sr-word ${strong(val) ? "s" : "w"}">${strong(val) ? "strong" : "weak"}</span>
+        </div>`;
+      row.innerHTML = `
+        <div class="sr-block">Block ${r.b.block}</div>
+        <div class="sr-meters">${meter("Appearance", r.app, "app")}${meter("Motion", r.mot, "mot")}</div>
+        <div class="sr-arrow">&rarr;</div>
+        <div class="sr-concl ${r.grp}">${r.grp === "app" ? "Appearance specialist" : "Motion specialist"}</div>`;
+      row.addEventListener("mouseenter", () => select(r.b, row));
+      row.addEventListener("click", () => select(r.b, row));
+      barsEl.appendChild(row);
+      cols.push({ b: r.b, col: row });
     });
-    barsEl.appendChild(svg);
 
     let activeBlock = null;
     function select(b, col) {

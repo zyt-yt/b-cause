@@ -174,8 +174,33 @@ h2.section-title {
   background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius);
   padding: 18px 16px 10px; box-shadow: var(--shadow-sm); overflow-x: auto; min-width: 0;
 }
-.cm-bars { min-width: 520px; position: relative; }
+.cm-bars { min-width: 0; position: relative; }
 .cm-dumb { width: 100%; height: auto; display: block; overflow: visible; }
+/* specialization scorecards */
+.spec-row { display: flex; align-items: center; gap: 22px; padding: 15px 10px; border-bottom: 1px solid var(--hairline);
+  cursor: pointer; transition: background .12s; border-radius: 8px; }
+.spec-row:hover, .spec-row.active { background: var(--surface-alt); }
+.spec-row.grp-start { margin-top: 10px; }
+.sr-block { font-family: var(--serif); font-size: 18px; font-weight: 600; flex: 0 0 92px; }
+.sr-meters { display: flex; gap: 30px; flex: 1; min-width: 0; }
+.sr-m { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; }
+.sr-mlab { font-size: 12.5px; color: var(--ink-2); font-weight: 600; flex: 0 0 74px; text-align: right; }
+.sr-track { flex: 1; height: 9px; background: #eceef3; border-radius: 6px; overflow: hidden; min-width: 48px; }
+.sr-fill { height: 100%; border-radius: 6px; transition: width .3s ease; }
+.sr-fill.app { background: var(--app); }
+.sr-fill.mot { background: var(--mot); }
+.sr-word { font-size: 11.5px; font-weight: 700; flex: 0 0 40px; }
+.sr-word.s { color: var(--ink); }
+.sr-word.w { color: var(--muted); }
+.sr-arrow { color: var(--muted); font-size: 19px; flex: 0 0 auto; }
+.sr-concl { font-size: 14px; font-weight: 700; padding: 6px 15px; border-radius: 100px; flex: 0 0 auto; white-space: nowrap; }
+.sr-concl.app { color: var(--app); background: var(--app-soft); }
+.sr-concl.mot { color: var(--mot); background: var(--mot-soft); }
+@media (max-width: 780px) {
+  .spec-row { flex-wrap: wrap; gap: 8px 16px; }
+  .sr-meters { flex-basis: 100%; order: 3; flex-direction: column; gap: 8px; }
+  .sr-concl { order: 2; margin-left: auto; } .sr-arrow { display: none; }
+}
 .cm-dz { cursor: pointer; }
 .cm-sbar { transition: filter .12s; }
 .cm-dz:hover .cm-sbar, .cm-dz.active .cm-sbar { filter: drop-shadow(0 2px 5px rgba(20,24,34,.3)); }
