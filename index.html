@@ -17,7 +17,7 @@
   <div class="nav-inner">
     <span class="nav-logo">B&#8209;<b>CAUSE</b></span>
     <div class="nav-links">
-      <a href="#causal-map">Causal Map</a>
+      <a href="#causal-map">Tracing</a>
       <a href="#method">Method</a>
       <a href="#results">Results</a>
       <a href="#comparisons">Comparisons</a>
@@ -83,18 +83,19 @@
 <!-- CAUSAL MAP (signature interactive) -->
 <section id="causal-map" class="alt">
   <div class="wrap cm-wrap">
-    <p class="eyebrow">The block taxonomy</p>
-    <h2 class="section-title">A causal map of all 42 blocks</h2>
+    <p class="eyebrow">Causal tracing</p>
+    <h2 class="section-title">What each block is responsible for</h2>
     <p class="section-lead">
-      For every block we run a <b>clean &rarr; corrupted &rarr; restored</b> trio, measuring how much restoring it
-      recovers <span class="hl-app">appearance</span> (30 object subjects) and <span class="hl-mot">motion</span>
-      (30 action subjects). Those two scores sort every block into one of <b>four roles</b> &mdash; and that 2&times;2
-      is the whole method.
+      To read a block&rsquo;s role we corrupt the prompt, then reinsert <b>one block&rsquo;s</b> clean activation at a time.
+      How much <span class="hl-app">appearance</span> and <span class="hl-mot">motion</span> come back &mdash; scored by a
+      weighted panel of 7 metrics &mdash; is that block&rsquo;s causal contribution. (The four roles it produces drive the
+      <a href="#method">method</a>.)
     </p>
 
-    <div class="cm-chart">
-      <div class="cm-bars" id="cmBars"></div>
-    </div>
+    <figure class="figure cm-figure">
+      <img src="assets/img/causal_tracing.jpg" alt="Causal tracing: corrupting the prompt turns the subject into something else; restoring an appearance block recovers it, restoring another block does not." loading="lazy">
+      <figcaption><b>Appearance is localized.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>'s clean activation restores the subject; another block does not &mdash; appearance is causally localized to specific blocks.</figcaption>
+    </figure>
 
     <div class="cm-scoring">
       <div class="cs-head"><b>Where the scores come from.</b> &ldquo;Strong&rdquo; and &ldquo;weak&rdquo; aren&rsquo;t one number &mdash; each restored clip is scored by a <b>weighted panel of 7 complementary metrics</b>, comparing <em>every frame</em> of the clean and restored videos.</div>
@@ -114,11 +115,6 @@
       </div>
       <div class="cs-models">DINOv2 &middot; LPIPS &middot; OpenCLIP &middot; RAFT &middot; Grounded-SAM&nbsp;2</div>
     </div>
-
-    <figure class="figure cm-figure">
-      <img src="assets/img/causal_tracing.jpg" alt="Causal tracing: corrupting the prompt turns the subject into something else; restoring an appearance block recovers it, restoring another block does not." loading="lazy">
-      <figcaption><b>Appearance is localized.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>'s clean activation restores the subject; another block does not &mdash; appearance is causally localized to specific blocks.</figcaption>
-    </figure>
 
   </div>
 </section>
@@ -202,7 +198,6 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script src="js/causal-map.js"></script>
 <script src="js/pipeline.js"></script>
 </body>
 </html>
