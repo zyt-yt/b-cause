@@ -91,53 +91,24 @@
     </p>
 
     <figure class="figure cm-figure">
-      <div class="tmap-scroll">
-        <div class="tmap">
-          <div></div>
-          <div class="th clean">Clean</div>
-          <div class="th corrupt">Corrupted</div>
-          <div class="th app">+ appearance block</div>
-          <div class="th other">+ other block</div>
-
-          <div class="tr-label">a cat</div>
-          <div class="tr-cell"><img src="assets/img/tr/cat_clean.jpg" alt="clean cat" loading="lazy"></div>
-          <div class="tr-cell"><img src="assets/img/tr/cat_corrupt.jpg" alt="corrupted" loading="lazy"></div>
-          <div class="tr-cell app"><img src="assets/img/tr/cat_app.jpg" alt="restored cat" loading="lazy"></div>
-          <div class="tr-cell"><img src="assets/img/tr/cat_other.jpg" alt="other block" loading="lazy"></div>
-
-          <div class="tr-label">a bicycle</div>
-          <div class="tr-cell"><img src="assets/img/tr/bike_clean.jpg" alt="clean bicycle" loading="lazy"></div>
-          <div class="tr-cell"><img src="assets/img/tr/bike_corrupt.jpg" alt="corrupted" loading="lazy"></div>
-          <div class="tr-cell app"><img src="assets/img/tr/bike_app.jpg" alt="restored bicycle" loading="lazy"></div>
-          <div class="tr-cell"><img src="assets/img/tr/bike_other.jpg" alt="other block" loading="lazy"></div>
-
-          <div class="tr-label">a guitar</div>
-          <div class="tr-cell"><img src="assets/img/tr/guitar_clean.jpg" alt="clean guitar" loading="lazy"></div>
-          <div class="tr-cell"><img src="assets/img/tr/guitar_corrupt.jpg" alt="corrupted" loading="lazy"></div>
-          <div class="tr-cell app"><img src="assets/img/tr/guitar_app.jpg" alt="restored guitar" loading="lazy"></div>
-          <div class="tr-cell"><img src="assets/img/tr/guitar_other.jpg" alt="other block" loading="lazy"></div>
-        </div>
+      <div class="recover">
+        <figure class="rec-f"><div class="rec-img"><img src="assets/img/tr/cat_clean.jpg" alt="clean cat" loading="lazy"></div><figcaption>the model&rsquo;s cat</figcaption></figure>
+        <div class="rec-step"><span class="rs-lab">corrupt<br>the prompt</span><span class="rs-arr">&rarr;</span></div>
+        <figure class="rec-f"><div class="rec-img bad"><img src="assets/img/tr/cat_corrupt.jpg" alt="a stranger" loading="lazy"></div><figcaption class="bad">&hellip; a stranger</figcaption></figure>
+        <div class="rec-step app"><span class="rs-lab">restore <b>one<br>appearance block</b></span><span class="rs-arr">&rarr;</span></div>
+        <figure class="rec-f win"><div class="rec-img"><img src="assets/img/tr/cat_app.jpg" alt="the cat is back" loading="lazy"></div><figcaption class="good">the cat is back</figcaption></figure>
       </div>
-      <figcaption><b>Appearance is localized.</b> Corrupting the prompt embedding turns the subject into something else (a cat&rarr;a person, a bicycle&rarr;cars). Reinserting a single <span class="hl-app">appearance block</span>&rsquo;s clean activation restores the subject; another block does not.</figcaption>
+      <figcaption><b>Appearance is localized.</b> Corrupting the prompt turns the subject into something else; reinserting a single <span class="hl-app">appearance block</span>&rsquo;s clean activation brings it back &mdash; while other blocks don&rsquo;t. The same holds for every prompt we traced (bicycles, guitars, &hellip;).</figcaption>
     </figure>
 
-    <div class="cm-scoring">
-      <div class="cs-head"><b>Where the scores come from.</b> &ldquo;Strong&rdquo; and &ldquo;weak&rdquo; aren&rsquo;t one number &mdash; each restored clip is scored by a <b>weighted panel of 7 complementary metrics</b>, comparing <em>every frame</em> of the clean and restored videos.</div>
-      <div class="cs-groups">
-        <div class="cs-col app">
-          <div class="cs-lab">Appearance</div>
-          <ul><li>Subject consistency</li><li>Attribute hypercolumn</li><li>Perceptual fidelity</li></ul>
-        </div>
-        <div class="cs-col mot">
-          <div class="cs-lab">Motion</div>
-          <ul><li>Optical-flow similarity</li><li>Semantic motion</li></ul>
-        </div>
-        <div class="cs-col shared">
-          <div class="cs-lab">Shared</div>
-          <ul><li>Temporal consistency</li><li>Text alignment</li></ul>
-        </div>
+    <div class="scoring">
+      <p class="sc-lead"><b>How each clip is scored.</b> Not one number &mdash; a <b>weighted panel of 7 metrics</b>, comparing every frame of the clean and restored videos.</p>
+      <div class="sc-rows">
+        <div class="sc-row"><span class="sc-grp app">Appearance</span><span class="sc-tag">Subject consistency</span><span class="sc-tag">Attribute hypercolumn</span><span class="sc-tag">Perceptual fidelity</span></div>
+        <div class="sc-row"><span class="sc-grp mot">Motion</span><span class="sc-tag">Optical-flow similarity</span><span class="sc-tag">Semantic motion</span></div>
+        <div class="sc-row"><span class="sc-grp shared">Shared</span><span class="sc-tag">Temporal consistency</span><span class="sc-tag">Text alignment</span></div>
       </div>
-      <div class="cs-models">DINOv2 &middot; LPIPS &middot; OpenCLIP &middot; RAFT &middot; Grounded-SAM&nbsp;2</div>
+      <p class="sc-models">backed by DINOv2 &middot; LPIPS &middot; OpenCLIP &middot; RAFT &middot; Grounded-SAM&nbsp;2</p>
     </div>
 
   </div>
