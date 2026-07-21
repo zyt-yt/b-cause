@@ -102,13 +102,13 @@
     </figure>
 
     <div class="scoring">
-      <p class="scoring2">
-        <b>How each clip is scored.</b> Not a single number &mdash; a weighted panel of <b>7 metrics</b> computed on every frame:
-        <span class="hl-app">appearance</span> from subject &amp; attribute identity and perceptual fidelity,
-        <span class="hl-mot">motion</span> from optical-flow and semantic-motion similarity,
-        and temporal consistency &amp; text alignment shared across both.
-      </p>
-      <p class="sc-models">DINOv2 &middot; LPIPS &middot; OpenCLIP &middot; RAFT &middot; Grounded-SAM&nbsp;2</p>
+      <p class="sc-lead">Each restored clip is scored against the clean reference on <b>every frame</b> by a weighted panel of <b>seven complementary metrics</b>.</p>
+      <dl class="sc-spec">
+        <div class="sc-line"><dt class="app">Appearance</dt><dd>Subject consistency &middot; Attribute hypercolumn &middot; Perceptual fidelity</dd></div>
+        <div class="sc-line"><dt class="mot">Motion</dt><dd>Optical-flow similarity &middot; Semantic-motion similarity</dd></div>
+        <div class="sc-line"><dt class="shared">Shared</dt><dd>Temporal consistency &middot; Text alignment</dd></div>
+      </dl>
+      <p class="sc-models"><span>Backbones</span> DINOv2 &middot; LPIPS &middot; OpenCLIP &middot; RAFT &middot; Grounded-SAM&nbsp;2</p>
     </div>
 
   </div>
