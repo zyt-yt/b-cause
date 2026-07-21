@@ -321,7 +321,9 @@ h2.section-title {
 .cm-readout .ro-m.mot b { color: var(--mot); }
 .cm-readout .ro-desc { color: var(--muted); font-size: 13.5px; margin-left: auto; }
 @media (max-width: 680px) { .cm-readout .ro-desc { margin-left: 0; flex-basis: 100%; } }
-.cm-figure { margin-top: 30px; }
+.cm-figure { margin-top: 30px; background: var(--surface); border: 1px solid var(--hairline);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 30px 32px 24px; }
+.cm-figure > figcaption { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--hairline); }
 
 /* scoring / metric-source panel */
 .cm-scoring { margin-top: 22px; background: var(--surface-alt); border: 1px solid var(--hairline);
