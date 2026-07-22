@@ -63,6 +63,39 @@
     <p class="eyebrow">The problem</p>
     <div class="problem-statement">
       <h2 class="section-title">Customizing a DiT video model breaks its motion</h2>
+
+      <figure class="dit-fig">
+        <div class="dit-panel">
+          <div class="dit-head">U&#8209;Net <span>prior methods</span></div>
+          <div class="dit-stack">
+            <div class="dit-blk app">
+              <div class="dit-blk-t">Spatial attention</div><div class="dit-blk-s">appearance</div>
+              <span class="dit-tag lora">tune this</span>
+            </div>
+            <div class="dit-blk mot">
+              <div class="dit-blk-t">Temporal attention</div><div class="dit-blk-s">motion</div>
+              <span class="dit-tag frozen">left alone</span>
+            </div>
+          </div>
+          <div class="dit-out good"><b>&#10003;</b> motion prior preserved</div>
+        </div>
+
+        <div class="dit-vs">vs</div>
+
+        <div class="dit-panel">
+          <div class="dit-head">DiT <span>CogVideoX</span></div>
+          <div class="dit-stack">
+            <div class="dit-blk mix">
+              <div class="dit-blk-t">Spatio&#8209;temporal attention</div>
+              <div class="dit-blk-s">appearance &amp; motion <b>entangled</b></div>
+              <span class="dit-tag lora wide">one LoRA hits both</span>
+            </div>
+          </div>
+          <div class="dit-out bad"><b>&#10007;</b> motion prior overwritten</div>
+        </div>
+        <figcaption>Prior methods tune the <span class="hl-app">appearance</span> module and leave <span class="hl-mot">motion</span> untouched. In a DiT the two live in one shared block, so a single LoRA corrupts both.</figcaption>
+      </figure>
+
       <p>
         U-Net video models keep <span class="hl-app">spatial</span> and <span class="hl-mot">temporal</span>
         attention in separate modules, so identity can be tuned without touching motion. Modern
@@ -102,11 +135,24 @@
 
     <div class="scoring">
       <p class="sc-lead">Each restored clip is scored against the clean reference on <b>every frame</b> by a weighted panel of <b>seven complementary metrics</b>.</p>
-      <dl class="sc-spec">
-        <div class="sc-line"><dt class="app">Appearance</dt><dd>Subject consistency &middot; Attribute hypercolumn</dd></div>
-        <div class="sc-line"><dt class="mot">Motion</dt><dd>Optical-flow similarity &middot; Semantic-motion similarity</dd></div>
-        <div class="sc-line"><dt class="shared">Shared</dt><dd>Perceptual fidelity &middot; Temporal consistency &middot; Text alignment</dd></div>
-      </dl>
+      <div class="sc-groups">
+        <div class="sc-grp app">
+          <span class="sc-grp-h">Appearance<em>2</em></span>
+          <span class="sc-tag">Subject consistency</span>
+          <span class="sc-tag">Attribute hypercolumn</span>
+        </div>
+        <div class="sc-grp mot">
+          <span class="sc-grp-h">Motion<em>2</em></span>
+          <span class="sc-tag">Optical-flow similarity</span>
+          <span class="sc-tag">Semantic-motion similarity</span>
+        </div>
+        <div class="sc-grp shared">
+          <span class="sc-grp-h">Shared<em>3</em></span>
+          <span class="sc-tag">Perceptual fidelity</span>
+          <span class="sc-tag">Temporal consistency</span>
+          <span class="sc-tag">Text alignment</span>
+        </div>
+      </div>
       <p class="sc-models"><span>Backbones</span> DINOv2 &middot; LPIPS &middot; OpenCLIP &middot; RAFT &middot; Grounded-SAM&nbsp;2</p>
     </div>
 
@@ -132,7 +178,7 @@
       <div class="step">
         <div class="n">PHASE 2 &middot; INFERENCE</div>
         <h3>Guide with motion blocks</h3>
-        <p>At denoising time we read feature deltas from <span class="hl-mot">motion-sensitive blocks</span> and apply a block-conditioned latent update, reintroducing the base model's natural dynamics under a LoRA-strength schedule.</p>
+        <p>At denoising time, within a noise-level window, we read the motion energy carried by the <span class="hl-mot">motion-sensitive blocks</span> and compare it to per-block reference targets. When motion falls short, a guidance gradient nudges the latent toward those targets &mdash; restoring natural dynamics without disturbing the learned identity, at a strength calibrated per subject.</p>
       </div>
     </div>
   </div>
