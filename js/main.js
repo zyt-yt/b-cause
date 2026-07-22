@@ -107,23 +107,28 @@
   function buildComparisons(comps) {
     const box = $("#cmpContainer");
     if (!box) return;
+    const scroll = el("div", "cmp-scroll");
+    const table = el("div", "cmp-table");
+    const head = el("div", "cmp-thead");
+    head.appendChild(el("div", "cmp-corner"));
+    METHOD_ORDER.forEach((m) =>
+      head.appendChild(el("div", "cmp-mh" + (m === "ours" ? " ours" : ""), METHOD_LABEL[m])));
+    table.appendChild(head);
     comps.forEach((c) => {
-      const set = el("div", "cmp-set");
-      set.appendChild(el("h3", null, c.label || cap(c.subject)));
-      set.appendChild(el("p", "pl", c.prompt_label));
-      const row = el("div", "cmp-row");
+      const row = el("div", "cmp-trow");
+      const lab = el("div", "cmp-rowlabel");
+      lab.appendChild(el("h3", null, c.label || cap(c.subject)));
+      lab.appendChild(el("p", null, c.prompt_label));
+      row.appendChild(lab);
       METHOD_ORDER.forEach((m) => {
-        if (!c.methods[m]) return;
-        const cell = el("div", "cmp-cell" + (m === "ours" ? " ours" : ""));
-        cell.appendChild(el("div", "tag", `<span class="dot"></span>${METHOD_LABEL[m]}`));
-        const card = el("div", "vcard");
-        card.appendChild(lazyVideo(c.methods[m].video, c.methods[m].poster, ""));
-        cell.appendChild(card);
+        const cell = el("div", "cmp-vcell" + (m === "ours" ? " ours" : ""));
+        if (c.methods[m]) cell.appendChild(lazyVideo(c.methods[m].video, c.methods[m].poster, ""));
         row.appendChild(cell);
       });
-      set.appendChild(row);
-      box.appendChild(set);
+      table.appendChild(row);
     });
+    scroll.appendChild(table);
+    box.appendChild(scroll);
   }
 
   function buildMetrics(m) {

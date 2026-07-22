@@ -393,17 +393,18 @@ h2.section-title {
 .step p { font-size: 15.5px; color: var(--ink-2); margin: 0; }
 
 /* ---------- comparisons ---------- */
-.cmp-set { margin-top: 26px; }
-.cmp-set h3 { font-family: var(--serif); font-weight: 600; font-size: 20px; margin: 0 0 4px; }
-.cmp-set .pl { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
-.cmp-row { display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 820px){ .cmp-row{ grid-template-columns: repeat(2,1fr);} }
-.cmp-cell { }
-.cmp-cell .tag { font-size: 12.5px; font-weight: 650; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
-.cmp-cell.ours .tag { color: var(--accent); }
-.cmp-cell .tag .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-.cmp-cell.ours { }
-.cmp-cell.ours .vcard { outline: 2px solid var(--accent); outline-offset: 0; }
+.cmp-scroll { overflow-x: auto; margin-top: 8px; padding: 2px 3px 6px; }
+.cmp-table { min-width: 760px; display: grid; grid-template-columns: 152px repeat(4, 1fr); gap: 12px 11px; align-items: stretch; }
+.cmp-thead, .cmp-trow { display: contents; }
+.cmp-mh { align-self: end; text-align: center; font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--ink-2); padding-bottom: 2px; }
+.cmp-mh.ours { color: var(--accent); }
+.cmp-rowlabel { align-self: center; padding-right: 6px; }
+.cmp-rowlabel h3 { font-family: var(--serif); font-weight: 600; font-size: 19px; margin: 0 0 4px; }
+.cmp-rowlabel p { color: var(--muted); font-size: 12.5px; margin: 0; line-height: 1.45; }
+.cmp-vcell { border-radius: 10px; overflow: hidden; background: #000; border: 1px solid var(--hairline); position: relative; }
+.cmp-vcell video { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
+.cmp-vcell.ours { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
 
 /* ---------- quantitative table ---------- */
 .tbl-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--hairline);
