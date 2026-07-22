@@ -94,8 +94,10 @@ h2.section-title {
 .hero h1 .amp { color: var(--accent); }
 .hero .subtitle {
   font-family: var(--serif); font-style: italic; font-weight: 400;
-  font-size: clamp(19px, 2.6vw, 26px); color: var(--ink-2); margin: 0 auto 22px; max-width: 30ch;
+  font-size: clamp(17px, 2.4vw, 25px); color: var(--ink-2); margin: 0 auto 22px;
+  white-space: nowrap;
 }
+@media (max-width: 800px) { .hero .subtitle { white-space: normal; max-width: 30ch; } }
 .hero .tagline { font-size: 18px; color: var(--ink-2); max-width: 60ch; margin: 0 auto 26px; }
 .venue { display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent);
   background: var(--surface-alt); border: 1px solid var(--hairline);
