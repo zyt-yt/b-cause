@@ -101,8 +101,8 @@
     render("all");
   }
 
-  const METHOD_LABEL = { ours: "B-CAUSE (ours)", customcrafter: "CustomCrafter", videobooth: "VideoBooth", pia: "PIA" };
-  const METHOD_ORDER = ["ours", "customcrafter", "videobooth", "pia"];
+  const METHOD_LABEL = { dreamvideo: "DreamVideo", videobooth: "VideoBooth", customcrafter: "CustomCrafter", ours: "B-CAUSE (ours)" };
+  const METHOD_ORDER = ["dreamvideo", "videobooth", "customcrafter", "ours"];
 
   function buildComparisons(comps) {
     const box = $("#cmpContainer");

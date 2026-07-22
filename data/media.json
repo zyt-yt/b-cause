@@ -45,82 +45,59 @@
   ],
   "comparisons": [
     {
+      "subject": "cat7",
+      "label": "Cat",
+      "prompt_label": "bounding across a stone path lined with flowers",
+      "methods": {
+        "videobooth": {
+          "video": "assets/videos/cmp_cat7_videobooth.mp4",
+          "poster": "assets/posters/cmp_cat7_videobooth.jpg"
+        },
+        "customcrafter": {
+          "video": "assets/videos/cmp_cat7_customcrafter.mp4",
+          "poster": "assets/posters/cmp_cat7_customcrafter.jpg"
+        },
+        "ours": {
+          "video": "assets/videos/cmp_cat7_ours.mp4",
+          "poster": "assets/posters/cmp_cat7_ours.jpg"
+        }
+      }
+    },
+    {
       "subject": "robot_toy",
       "label": "Robot toy",
-      "prompt_label": "same subject \u00b7 each method's own prompt",
+      "prompt_label": "racing between small stones on a garden path",
       "methods": {
-        "ours": {
-          "video": "assets/videos/cmp_robot_toy_ours.mp4",
-          "poster": "assets/posters/cmp_robot_toy_ours.jpg"
+        "videobooth": {
+          "video": "assets/videos/cmp_robot_toy_videobooth.mp4",
+          "poster": "assets/posters/cmp_robot_toy_videobooth.jpg"
         },
         "customcrafter": {
           "video": "assets/videos/cmp_robot_toy_customcrafter.mp4",
           "poster": "assets/posters/cmp_robot_toy_customcrafter.jpg"
         },
-        "videobooth": {
-          "video": "assets/videos/cmp_robot_toy_videobooth.mp4",
-          "poster": "assets/posters/cmp_robot_toy_videobooth.jpg"
-        },
-        "pia": {
-          "video": "assets/videos/cmp_robot_toy_pia.mp4",
-          "poster": "assets/posters/cmp_robot_toy_pia.jpg"
+        "ours": {
+          "video": "assets/videos/cmp_robot_toy_ours.mp4",
+          "poster": "assets/posters/cmp_robot_toy_ours.jpg"
         }
       }
     },
     {
-      "subject": "plushie_panda",
-      "label": "Panda plushie",
-      "prompt_label": "same subject \u00b7 each method's own prompt",
+      "subject": "dog5",
+      "label": "Dog",
+      "prompt_label": "chasing through tall grass in golden light",
       "methods": {
-        "ours": {
-          "video": "assets/videos/cmp_plushie_panda_ours.mp4",
-          "poster": "assets/posters/cmp_plushie_panda_ours.jpg"
-        },
         "videobooth": {
-          "video": "assets/videos/cmp_plushie_panda_videobooth.mp4",
-          "poster": "assets/posters/cmp_plushie_panda_videobooth.jpg"
+          "video": "assets/videos/cmp_dog5_videobooth.mp4",
+          "poster": "assets/posters/cmp_dog5_videobooth.jpg"
         },
-        "pia": {
-          "video": "assets/videos/cmp_plushie_panda_pia.mp4",
-          "poster": "assets/posters/cmp_plushie_panda_pia.jpg"
-        }
-      }
-    },
-    {
-      "subject": "dog11",
-      "label": "Corgi",
-      "prompt_label": "same subject \u00b7 each method's own prompt",
-      "methods": {
+        "customcrafter": {
+          "video": "assets/videos/cmp_dog5_customcrafter.mp4",
+          "poster": "assets/posters/cmp_dog5_customcrafter.jpg"
+        },
         "ours": {
-          "video": "assets/videos/cmp_dog11_ours.mp4",
-          "poster": "assets/posters/cmp_dog11_ours.jpg"
-        },
-        "videobooth": {
-          "video": "assets/videos/cmp_dog11_videobooth.mp4",
-          "poster": "assets/posters/cmp_dog11_videobooth.jpg"
-        },
-        "pia": {
-          "video": "assets/videos/cmp_dog11_pia.mp4",
-          "poster": "assets/posters/cmp_dog11_pia.jpg"
-        }
-      }
-    },
-    {
-      "subject": "duck_toy",
-      "label": "Duck toy",
-      "prompt_label": "same subject \u00b7 each method's own prompt",
-      "methods": {
-        "ours": {
-          "video": "assets/videos/cmp_duck_toy_ours.mp4",
-          "poster": "assets/posters/cmp_duck_toy_ours.jpg"
-        },
-        "videobooth": {
-          "video": "assets/videos/cmp_duck_toy_videobooth.mp4",
-          "poster": "assets/posters/cmp_duck_toy_videobooth.jpg"
-        },
-        "pia": {
-          "video": "assets/videos/cmp_duck_toy_pia.mp4",
-          "poster": "assets/posters/cmp_duck_toy_pia.jpg"
+          "video": "assets/videos/cmp_dog5_ours.mp4",
+          "poster": "assets/posters/cmp_dog5_ours.jpg"
         }
       }
     }
