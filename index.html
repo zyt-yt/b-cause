@@ -64,49 +64,26 @@
     <div class="problem-statement">
       <h2 class="section-title">Customizing a DiT video model breaks its motion</h2>
 
-      <figure class="dit-fig">
-        <div class="dit-panel">
-          <div class="dit-head">U&#8209;Net <span>prior methods</span></div>
-          <div class="dit-stack">
-            <div class="dit-blk app">
-              <div class="dit-blk-t">Spatial attention</div><div class="dit-blk-s">appearance</div>
-              <span class="dit-tag lora">tune this</span>
-            </div>
-            <div class="dit-blk mot">
-              <div class="dit-blk-t">Temporal attention</div><div class="dit-blk-s">motion</div>
-              <span class="dit-tag frozen">left alone</span>
-            </div>
-          </div>
-          <div class="dit-out good"><b>&#10003;</b> motion prior preserved</div>
-        </div>
-
-        <div class="dit-vs">vs</div>
-
-        <div class="dit-panel">
-          <div class="dit-head">DiT <span>CogVideoX</span></div>
-          <div class="dit-stack">
-            <div class="dit-blk mix">
-              <div class="dit-blk-t">Spatio&#8209;temporal attention</div>
-              <div class="dit-blk-s">appearance &amp; motion <b>entangled</b></div>
-              <span class="dit-tag lora wide">one LoRA hits both</span>
-            </div>
-          </div>
-          <div class="dit-out bad"><b>&#10007;</b> motion prior overwritten</div>
-        </div>
-        <figcaption>Prior methods tune the <span class="hl-app">appearance</span> module and leave <span class="hl-mot">motion</span> untouched. In a DiT the two live in one shared block, so a single LoRA corrupts both.</figcaption>
-      </figure>
-
-      <p>
-        U-Net video models keep <span class="hl-app">spatial</span> and <span class="hl-mot">temporal</span>
-        attention in separate modules, so identity can be tuned without touching motion. Modern
-        <span class="key">diffusion transformers</span> (e.g. CogVideoX) instead entangle both inside
-        <span class="key">shared spatio-temporal attention blocks</span>.
+      <p class="prob-lead">
+        Subject customization was built for <b>U-Net</b> video models. It breaks on
+        <b>diffusion transformers</b> like CogVideoX &mdash; and the reason is simply <em>where appearance and motion live</em>.
       </p>
-      <p>
-        The consequence: applying a LoRA uniformly across all blocks to learn a subject <span class="key">also
-        overwrites the pretrained motion prior</span> &mdash; identity improves, but the video stiffens or drifts.
-        The open question is <em>which</em> blocks carry appearance vs. motion, and whether that split can be
-        systematically characterized and exploited.
+
+      <div class="contrast">
+        <div class="ct-card ok">
+          <div class="ct-h">U&#8209;Net <span>prior methods</span></div>
+          <p><span class="hl-app">Appearance</span> and <span class="hl-mot">motion</span> sit in <b>separate attention modules</b>. Fine-tune the appearance one, and motion is never touched.</p>
+          <div class="ct-out ok"><b>&#10003;</b> motion preserved</div>
+        </div>
+        <div class="ct-card bad">
+          <div class="ct-h">DiT <span>CogVideoX</span></div>
+          <p><span class="hl-app">Appearance</span> and <span class="hl-mot">motion</span> are entangled in <b>one shared block</b>. A LoRA that learns the subject <b>rewrites motion with it</b>.</p>
+          <div class="ct-out bad"><b>&#10007;</b> motion breaks &mdash; the video stiffens or drifts</div>
+        </div>
+      </div>
+
+      <p class="prob-q">
+        So the question becomes: <em>which</em> blocks carry appearance versus motion &mdash; and can that split be measured and put to use?
       </p>
     </div>
   </div>

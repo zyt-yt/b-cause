@@ -154,33 +154,26 @@ h2.section-title {
 .problem-statement p { font-size: 19px; color: var(--ink-2); }
 .problem-statement .section-title { max-width: 20ch; }
 
-/* problem: U-Net (separable) vs DiT (entangled) schematic */
-.dit-fig { margin: 24px 0 28px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 16px; }
-.dit-panel { display: flex; flex-direction: column; gap: 11px; }
-.dit-head { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink);
-  display: flex; align-items: baseline; gap: 8px; }
-.dit-head span { font-size: 11px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--muted); }
-.dit-stack { display: flex; flex-direction: column; gap: 9px; flex: 1; }
-.dit-blk { position: relative; border-radius: 11px; padding: 15px 16px; border: 1.5px solid var(--hairline);
-  flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 64px; }
-.dit-blk-t { font-size: 15px; font-weight: 650; color: var(--ink); }
-.dit-blk-s { font-size: 12.5px; color: var(--ink-2); margin-top: 3px; }
-.dit-blk.app { background: color-mix(in srgb, var(--app) 9%, var(--surface)); border-color: color-mix(in srgb, var(--app) 42%, var(--hairline)); }
-.dit-blk.mot { background: color-mix(in srgb, var(--mot) 9%, var(--surface)); border-color: color-mix(in srgb, var(--mot) 42%, var(--hairline)); }
-.dit-blk.mix { min-height: 137px; border-color: color-mix(in srgb, var(--mot) 38%, var(--hairline));
-  background: linear-gradient(108deg, color-mix(in srgb, var(--app) 15%, var(--surface)), color-mix(in srgb, var(--mot) 15%, var(--surface))); }
-.dit-blk.mix .dit-blk-s b { color: var(--ink); }
-.dit-tag { position: absolute; top: -10px; right: 13px; font-size: 10.5px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .04em; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
-.dit-tag.lora { background: var(--ink); color: var(--surface); }
-.dit-tag.frozen { background: var(--surface-alt); color: var(--muted); border: 1px solid var(--hairline); }
-.dit-out { font-size: 13px; font-weight: 650; display: flex; align-items: center; gap: 7px; }
-.dit-out b { font-size: 15px; }
-.dit-out.good { color: #2f9e5f; }
-.dit-out.bad { color: #d0533f; }
-.dit-vs { align-self: center; font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--muted); }
-.dit-fig figcaption { grid-column: 1 / -1; font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
-@media (max-width: 620px) { .dit-fig { grid-template-columns: 1fr; } .dit-vs { padding: 2px 0; } }
+/* problem: clean U-Net vs DiT contrast cards */
+.prob-lead { margin: 0 0 20px; }
+.prob-lead b { color: var(--ink); font-weight: 650; }
+.prob-lead em, .prob-q em { font-style: italic; color: var(--ink); }
+.contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 20px; }
+.ct-card { border: 1px solid var(--hairline); border-top: 3px solid var(--edge); border-radius: 12px;
+  padding: 16px 20px 15px; background: var(--surface); }
+.ct-card.ok { --edge: #2f9e5f; }
+.ct-card.bad { --edge: #d0533f; }
+.ct-h { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink);
+  margin-bottom: 9px; display: flex; align-items: baseline; gap: 8px; }
+.ct-h span { font-size: 11px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--muted); }
+.problem-statement .ct-card p { font-size: 14.5px; color: var(--ink-2); margin: 0 0 13px; line-height: 1.55; }
+.ct-card p b { color: var(--ink); font-weight: 650; }
+.ct-out { font-size: 13px; font-weight: 650; display: flex; align-items: center; gap: 7px; }
+.ct-out b { font-size: 14px; }
+.ct-out.ok { color: #2f9e5f; }
+.ct-out.bad { color: #d0533f; }
+.prob-q { margin: 0; }
+@media (max-width: 620px) { .contrast { grid-template-columns: 1fr; } }
 .key { color: var(--ink); font-weight: 600; }
 .hl-app { color: var(--app); font-weight: 600; }
 .hl-mot { color: var(--mot); font-weight: 600; }
