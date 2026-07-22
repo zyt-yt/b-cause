@@ -49,6 +49,10 @@
       "label": "Cat",
       "prompt_label": "bounding across a stone path lined with flowers",
       "methods": {
+        "dreamvideo": {
+          "video": "assets/videos/cmp_cat7_dreamvideo.mp4",
+          "poster": "assets/posters/cmp_cat7_dreamvideo.jpg"
+        },
         "videobooth": {
           "video": "assets/videos/cmp_cat7_videobooth.mp4",
           "poster": "assets/posters/cmp_cat7_videobooth.jpg"
@@ -68,6 +72,10 @@
       "label": "Robot toy",
       "prompt_label": "racing between small stones on a garden path",
       "methods": {
+        "dreamvideo": {
+          "video": "assets/videos/cmp_robot_toy_dreamvideo.mp4",
+          "poster": "assets/posters/cmp_robot_toy_dreamvideo.jpg"
+        },
         "videobooth": {
           "video": "assets/videos/cmp_robot_toy_videobooth.mp4",
           "poster": "assets/posters/cmp_robot_toy_videobooth.jpg"
@@ -87,6 +95,10 @@
       "label": "Dog",
       "prompt_label": "chasing through tall grass in golden light",
       "methods": {
+        "dreamvideo": {
+          "video": "assets/videos/cmp_dog5_dreamvideo.mp4",
+          "poster": "assets/posters/cmp_dog5_dreamvideo.jpg"
+        },
         "videobooth": {
           "video": "assets/videos/cmp_dog5_videobooth.mp4",
           "poster": "assets/posters/cmp_dog5_videobooth.jpg"
