@@ -444,6 +444,7 @@ footer a { font-weight: 500; }
   background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; }
 .pl-arrow { align-self: center; color: var(--muted); font-size: 22px; flex: 0 0 auto; }
 .pl-cap { font-size: 12.5px; color: var(--ink-2); margin: auto 0 0; padding-top: 14px; line-height: 1.5; }
+.pl-trace, .pl-use { margin-top: auto; }
 .pl-trace { display: flex; align-items: center; gap: 6px; justify-content: center; flex-wrap: wrap; }
 .pl-trace figure { margin: 0; text-align: center; }
 .pl-trace img { width: 76px; height: 47px; object-fit: cover; border-radius: 6px; border: 1px solid var(--hairline); display: block; }
