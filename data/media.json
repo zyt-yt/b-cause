@@ -1,52 +1,46 @@
 {
   "gallery": [
     {
-      "subject": "dog2",
-      "category": "animal",
-      "prompt_label": "dog chasing a red ball",
-      "backbone": "Wan2.2-5B",
-      "video": "assets/videos/hero_00_dog2_ball.mp4",
-      "poster": "assets/posters/hero_00_dog2_ball.jpg"
+      "subject": "plushie_panda",
+      "category": "plushie",
+      "prompt_label": "panda sledding down a snowy hill",
+      "video": "assets/videos/gal_00_plushie_panda.mp4",
+      "poster": "assets/posters/gal_00_plushie_panda.jpg"
     },
     {
-      "subject": "duck_toy",
-      "category": "toy",
-      "prompt_label": "duck floating on a pond",
-      "backbone": "Wan2.2-5B",
-      "video": "assets/videos/hero_01_duck_pond.mp4",
-      "poster": "assets/posters/hero_01_duck_pond.jpg"
+      "subject": "dog11",
+      "category": "animal",
+      "prompt_label": "corgi bounding down a boardwalk",
+      "video": "assets/videos/gal_01_dog11.mp4",
+      "poster": "assets/posters/gal_01_dog11.jpg"
     },
     {
       "subject": "robot_toy",
       "category": "toy",
       "prompt_label": "robot circling a chessboard",
-      "backbone": "Wan2.2-5B",
-      "video": "assets/videos/hero_02_robot_chess.mp4",
-      "poster": "assets/posters/hero_02_robot_chess.jpg"
+      "video": "assets/videos/gal_02_robot_toy.mp4",
+      "poster": "assets/posters/gal_02_robot_toy.jpg"
     },
     {
-      "subject": "dog2",
-      "category": "animal",
-      "prompt_label": "dog wading a forest creek",
-      "backbone": "Wan2.2-5B",
-      "video": "assets/videos/hero_03_dog2_creek.mp4",
-      "poster": "assets/posters/hero_03_dog2_creek.jpg"
-    },
-    {
-      "subject": "plushie_panda",
+      "subject": "plushie_bunny",
       "category": "plushie",
-      "prompt_label": "panda plushie on a trampoline",
-      "backbone": "Wan2.2-5B",
-      "video": "assets/videos/hero_04_panda_tramp.mp4",
-      "poster": "assets/posters/hero_04_panda_tramp.jpg"
+      "prompt_label": "bunny plushie on a sunlit bed",
+      "video": "assets/videos/gal_03_plushie_bunny.mp4",
+      "poster": "assets/posters/gal_03_plushie_bunny.jpg"
     },
     {
       "subject": "dog2",
       "category": "animal",
-      "prompt_label": "chow at an autumn fence",
-      "backbone": "CogVideoX-5B",
-      "video": "assets/videos/hero_05_dog2_fence.mp4",
-      "poster": "assets/posters/hero_05_dog2_fence.jpg"
+      "prompt_label": "dog running through snow",
+      "video": "assets/videos/gal_04_dog2.mp4",
+      "poster": "assets/posters/gal_04_dog2.jpg"
+    },
+    {
+      "subject": "duck_toy",
+      "category": "toy",
+      "prompt_label": "duck toy drifting on a pond",
+      "video": "assets/videos/gal_05_duck_toy.mp4",
+      "poster": "assets/posters/gal_05_duck_toy.jpg"
     }
   ],
   "comparisons": [
