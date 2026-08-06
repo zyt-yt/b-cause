@@ -47,7 +47,7 @@
     {
       "subject": "cat7",
       "label": "Cat",
-      "prompt_label": "bounding across a stone path lined with flowers",
+      "prompt_label": "walking across a stone path lined with flowers",
       "methods": {
         "dreamvideo": {
           "video": "assets/videos/cmp_cat7_dreamvideo.mp4",
