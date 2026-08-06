@@ -113,5 +113,38 @@
         }
       }
     }
-  ]
+  ],
+  "hero": {
+    "cogvideox": [
+      {
+        "subject": "plushie_panda",
+        "category": "plushie",
+        "prompt_label": "panda sledding down a snowy hill",
+        "video": "assets/videos/gal_00_plushie_panda.mp4",
+        "poster": "assets/posters/gal_00_plushie_panda.jpg"
+      },
+      {
+        "subject": "dog11",
+        "category": "animal",
+        "prompt_label": "corgi bounding down a boardwalk",
+        "video": "assets/videos/gal_01_dog11.mp4",
+        "poster": "assets/posters/gal_01_dog11.jpg"
+      },
+      {
+        "subject": "robot_toy",
+        "category": "toy",
+        "prompt_label": "robot circling a chessboard",
+        "video": "assets/videos/gal_02_robot_toy.mp4",
+        "poster": "assets/posters/gal_02_robot_toy.jpg"
+      },
+      {
+        "subject": "duck_toy",
+        "category": "toy",
+        "prompt_label": "duck toy drifting on a pond",
+        "video": "assets/videos/gal_05_duck_toy.mp4",
+        "poster": "assets/posters/gal_05_duck_toy.jpg"
+      }
+    ],
+    "wan": []
+  }
 }

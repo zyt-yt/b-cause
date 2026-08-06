@@ -55,18 +55,34 @@
     const metrics = await getJSON("data/metrics.json");
 
     if (media) {
-      buildHero(media.gallery || []);
+      buildHero(media);
       buildGallery(media.gallery || []);
       buildComparisons(media.comparisons || []);
     }
     if (metrics) buildMetrics(metrics);
   }
 
-  function buildHero(gallery) {
+  function buildHero(media) {
     const grid = $("#heroGrid");
     if (!grid) return;
-    const pick = gallery.slice(0, 6);
-    pick.forEach((g) => {
+    const hero = media.hero;
+    if (hero) {
+      const rows = [["CogVideoX-5B", hero.cogvideox], ["Wan2.2-5B", hero.wan]];
+      rows.forEach(([label, clips]) => {
+        if (!clips || !clips.length) return;
+        const lab = el("div", "hero-rowlabel", label + " <span>backbone</span>");
+        const row = el("div", "hero-row");
+        clips.slice(0, 4).forEach((g) => {
+          const cell = el("div", "cell");
+          cell.appendChild(lazyVideo(g.video, g.poster, ""));
+          row.appendChild(cell);
+        });
+        grid.appendChild(lab);
+        grid.appendChild(row);
+      });
+      return;
+    }
+    (media.gallery || []).slice(0, 6).forEach((g) => {
       const cell = el("div", "cell");
       cell.appendChild(lazyVideo(g.video, g.poster, ""));
       grid.appendChild(cell);
