@@ -70,7 +70,7 @@
     {
       "subject": "robot_toy",
       "label": "Robot toy",
-      "prompt_label": "racing between small stones on a garden path",
+      "prompt_label": "rolling along a garden path between small stones",
       "methods": {
         "dreamvideo": {
           "video": "assets/videos/cmp_robot_toy_dreamvideo.mp4",
