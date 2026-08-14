@@ -117,11 +117,11 @@
   "hero": {
     "cogvideox": [
       {
-        "subject": "plushie_panda",
-        "category": "plushie",
-        "prompt_label": "panda sledding down a snowy hill",
-        "video": "assets/videos/gal_00_plushie_panda.mp4",
-        "poster": "assets/posters/gal_00_plushie_panda.jpg"
+        "subject": "actionfigure_1",
+        "prompt_label": "figure turning in falling snow",
+        "category": "toy",
+        "video": "assets/videos/hero_c0_figure_snow.mp4",
+        "poster": "assets/posters/hero_c0_figure_snow.jpg"
       },
       {
         "subject": "dog11",
@@ -145,6 +145,14 @@
         "poster": "assets/posters/gal_05_duck_toy.jpg"
       }
     ],
-    "wan": []
+    "wan": [
+      {
+        "subject": "dog2",
+        "prompt_label": "chow chow running toward camera",
+        "category": "animal",
+        "video": "assets/videos/hero_w0_dog2_track.mp4",
+        "poster": "assets/posters/hero_w0_dog2_track.jpg"
+      }
+    ]
   }
 }
