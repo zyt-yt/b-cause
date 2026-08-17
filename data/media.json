@@ -152,6 +152,13 @@
         "category": "animal",
         "video": "assets/videos/hero_w0_dog2_track.mp4",
         "poster": "assets/posters/hero_w0_dog2_track.jpg"
+      },
+      {
+        "subject": "plushie_penguin",
+        "prompt_label": "penguin plushie riding a skateboard",
+        "category": "plushie",
+        "video": "assets/videos/hero_w1_penguin_skate.mp4",
+        "poster": "assets/posters/hero_w1_penguin_skate.jpg"
       }
     ]
   }
