@@ -159,6 +159,13 @@
         "category": "plushie",
         "video": "assets/videos/hero_w1_penguin_skate.mp4",
         "poster": "assets/posters/hero_w1_penguin_skate.jpg"
+      },
+      {
+        "subject": "cat2",
+        "prompt_label": "cat walking through autumn leaves",
+        "category": "animal",
+        "video": "assets/videos/hero_w2_cat2_leaves.mp4",
+        "poster": "assets/posters/hero_w2_cat2_leaves.jpg"
       }
     ]
   }
