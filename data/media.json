@@ -148,10 +148,10 @@
     "wan": [
       {
         "subject": "dog2",
-        "prompt_label": "chow chow running toward camera",
+        "prompt_label": "chow chow running across a lavender field",
         "category": "animal",
-        "video": "assets/videos/hero_w0_dog2_track.mp4",
-        "poster": "assets/posters/hero_w0_dog2_track.jpg"
+        "video": "assets/videos/hero_w0_dog2_lavender.mp4",
+        "poster": "assets/posters/hero_w0_dog2_lavender.jpg"
       },
       {
         "subject": "plushie_penguin",

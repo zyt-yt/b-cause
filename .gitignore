@@ -7,3 +7,4 @@ scripts/*.log
 scripts/pw_ready.txt
 scripts/walkthrough.mp4
 scripts/trace_check/
+scripts/full/
