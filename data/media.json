@@ -50,8 +50,8 @@
       "prompt_label": "bounding across a stone path lined with flowers",
       "methods": {
         "dreamvideo": {
-          "video": "assets/videos/cmp_cat7_dreamvideo.mp4",
-          "poster": "assets/posters/cmp_cat7_dreamvideo.jpg"
+          "video": "assets/videos/cmp_cat7_dreamvideo_t0.mp4",
+          "poster": "assets/posters/cmp_cat7_dreamvideo_t0.jpg"
         },
         "videobooth": {
           "video": "assets/videos/cmp_cat7_videobooth.mp4",
@@ -73,8 +73,8 @@
       "prompt_label": "rolling along a garden path between small stones",
       "methods": {
         "dreamvideo": {
-          "video": "assets/videos/cmp_robot_toy_dreamvideo.mp4",
-          "poster": "assets/posters/cmp_robot_toy_dreamvideo.jpg"
+          "video": "assets/videos/cmp_robot_toy_dreamvideo_t0.mp4",
+          "poster": "assets/posters/cmp_robot_toy_dreamvideo_t0.jpg"
         },
         "videobooth": {
           "video": "assets/videos/cmp_robot_toy_videobooth.mp4",
@@ -96,8 +96,8 @@
       "prompt_label": "chasing happily through tall grass in golden light",
       "methods": {
         "dreamvideo": {
-          "video": "assets/videos/cmp_dog5_dreamvideo.mp4",
-          "poster": "assets/posters/cmp_dog5_dreamvideo.jpg"
+          "video": "assets/videos/cmp_dog5_dreamvideo_t0.mp4",
+          "poster": "assets/posters/cmp_dog5_dreamvideo_t0.jpg"
         },
         "videobooth": {
           "video": "assets/videos/cmp_dog5_videobooth.mp4",
