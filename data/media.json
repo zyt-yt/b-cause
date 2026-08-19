@@ -58,8 +58,8 @@
           "poster": "assets/posters/cmp_cat7_videobooth.jpg"
         },
         "customcrafter": {
-          "video": "assets/videos/cmp_cat7_customcrafter.mp4",
-          "poster": "assets/posters/cmp_cat7_customcrafter.jpg"
+          "video": "assets/videos/cmp_cat7_customcrafter_s0000.mp4",
+          "poster": "assets/posters/cmp_cat7_customcrafter_s0000.jpg"
         },
         "ours": {
           "video": "assets/videos/cmp_cat7_ours.mp4",
@@ -81,8 +81,8 @@
           "poster": "assets/posters/cmp_robot_toy_videobooth.jpg"
         },
         "customcrafter": {
-          "video": "assets/videos/cmp_robot_toy_customcrafter.mp4",
-          "poster": "assets/posters/cmp_robot_toy_customcrafter.jpg"
+          "video": "assets/videos/cmp_robot_toy_customcrafter_s0008.mp4",
+          "poster": "assets/posters/cmp_robot_toy_customcrafter_s0008.jpg"
         },
         "ours": {
           "video": "assets/videos/cmp_robot_toy_ours.mp4",
@@ -104,8 +104,8 @@
           "poster": "assets/posters/cmp_dog5_videobooth.jpg"
         },
         "customcrafter": {
-          "video": "assets/videos/cmp_dog5_customcrafter.mp4",
-          "poster": "assets/posters/cmp_dog5_customcrafter.jpg"
+          "video": "assets/videos/cmp_dog5_customcrafter_s42.mp4",
+          "poster": "assets/posters/cmp_dog5_customcrafter_s42.jpg"
         },
         "ours": {
           "video": "assets/videos/cmp_dog5_ours.mp4",
