@@ -166,6 +166,13 @@
         "category": "animal",
         "video": "assets/videos/hero_w2_cat2_leaves.mp4",
         "poster": "assets/posters/hero_w2_cat2_leaves.jpg"
+      },
+      {
+        "subject": "actionfigure_2",
+        "prompt_label": "action figure riding a toy cart downhill",
+        "category": "action-figure",
+        "video": "assets/videos/hero_w3_af2_cart_s2024_t33.mp4",
+        "poster": "assets/posters/hero_w3_af2_cart_s2024_t33.jpg"
       }
     ]
   }
